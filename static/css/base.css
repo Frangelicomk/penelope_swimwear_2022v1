@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .main-logo-link {
     width: 120px;
 }
@@ -24,6 +28,10 @@
     color: white;
 }
 
+.product-card{
+    padding: 0px!important;
+    margin-bottom: 0px!important;
+}
 
 @media (max-width: 362px) {
     .section-header .content h1 {
