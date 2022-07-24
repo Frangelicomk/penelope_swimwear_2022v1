@@ -1,6 +1,286 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+{% endblock %}
+
 {% block content %}
-<h1 class="display-4 text-success">It Works!</h1>
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top navbar-burger" role="navigation">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar bar1"></span>
+                <span class="icon-bar bar2"></span>
+                <span class="icon-bar bar3"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                Logo
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li class="social-links">
+                        <a href="#"> 
+                        <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/penelope.calenti.swimwear/" target="_blank"> 
+                        <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#whoWeAre"> 
+                        About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#projects">
+                        The Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#team"> 
+                        My Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#numbers"> 
+                        Log in
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#contact"> 
+                        Register
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+      <div class="section section-header" id="header1">
+        <div class="parallax pattern-image filter filter-color-black" data-color="black">
+            <img alt="..." src="/media/penelope/IMG_8104.jpeg" class="hidden-xs hidden-sm"><div class="responsive-background"></div>
+            <div class="container">
+                <div class="content">
+                    <p><span>by </span>Penelope Calenti</p>
+                    <h1>“Epimoní”</h1>
+                    <div class="separator-container">
+                        <div class="separator line-separator">✻</div>
+                    </div>
+                    <h5>Swimwear Collection 2022</h5>
+                </div>
+            </div>
+        </div>
+        <a href="#whoWeAre" data-scroll="true" data-id="#whoWeAre" class="scroll-arrow hidden-xs hidden-sm">
+            <i class="fa fa-angle-down"></i>
+        </a>
+      </div>
+    <div class="section section-we-are-2" id="whoWeAre">
+        <div class="text-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="title animate add-animation">
+                            <h5 class="text-gray">Epimoní</h5>
+                            <h2>The Story Behind Epimoní</h2>
+                            <div class="separator-container">
+                                <div class="separator line-separator">✻</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-md-offset-1">
+                        <div class="description animation-1 add-animation animate">
+                            <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…</p>
+                            <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
+                            <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax full-image pattern-image">
+            <img alt="..." class="parallax-img" src="/media/penelope/DSC_0426.jpg">
+        </div>
+    </div>
+
+
+    <!-- Section "Our Projects" example 3: 2 Columns Boxed -->
+    <div class="section section-we-made-3 section-with-hover" id="projects1">
+        <div class="text-area">
+            <div class="title add-animation animate">
+                <h2>Epimoní Collection</h2>
+                <div class="separator-container">
+                    <div class="separator line-separator">✻</div>
+                </div>
+                <p>Μια μικρή απόφαση χρειάζεται λογική…
+                  Μια μεγάλη ένστικτο και επιμονή!
+                  “The Epimoní Swimwear Collection 2022”</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" id="projectsLine1">
+              <div class="col-md-6">
+                <div class="project animation-2 add-animation animate">
+                    <img alt="..." src="/media/penelope/DSC_0553.jpg">
+                    <a class="over-area color-black " href="javascript:void(0)" onclick="rubik.showModal(this)" data-target="project_2">
+                        <div class="content">
+                            <h4>Ephoria</h4>
+                            <p>(n) euphoria; A feeling or state of intense excitement and happiness.</p>
+                            <p>pronunciation | e-pho-ri-a </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="project animation-2 add-animation animate">
+                        <img alt="..." src="/media/penelope/8C005D0E-7A01-4591-AFE3-504C3BB9FDBA.jpeg">
+                        <a class="over-area color-black " href="javascript:void(0)" onclick="rubik.showModal(this)" data-target="project_2">
+                            <div class="content">
+                                <h4>Ithiki</h4>
+                                <p>(n) ethic; A set of moral principles, especially ones relating to or affirming a specified group, field, or form of conduct.</p>
+                                <p>pronunciation | i-thi-ki</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Section "Our Projects" example 3: 2 Columns Boxed -->
+
+    <!-- Section "Clients" example 3: Personal Testimonial -->
+    <!-- End Section "Clients" example 3: Personal Testimonial -->
+
+    <!-- Section "Team" example 1: Title & Full Image -->
+    <div class="section section-team-1" id="team1">
+        <div class="container">
+            <div class="text-area">
+                <div class="title">
+                    <h2>Swimwear 2022 Collection</h2>
+                    <div class="separator-container">
+                        <div class="separator line-separator">✻</div>
+                    </div>
+                    <p class="text-gray">By Penelope</p>
+                </div>
+            </div>
+        </div>
+        <div class="full-image gradient-image">
+            <img alt="..." src="/media/penelope/EC6C1BBF-B061-4C4B-99E3-FE5C3D147BA1.jpeg">
+        </div>
+    </div>
+    <!-- End Section "Team" example 1: Description & Full Image -->
+
+
+    <!-- Section "Contact" example 1: Form Style 1 -->
+    <div class="section section-contact-1" id="contact1">
+        <div class="container">
+            <div class="text-area">
+                <div class="title add-animation animate">
+                    <h3>Let's collaborate</h3>
+                    <div class="separator-container">
+                        <div class="separator line-separator">✻</div>
+                    </div>
+                    <p>Send me your message</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group animation-1 add-animation animate">
+                                <input type="text" name="name" value="" placeholder="Your Name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group animation-2 add-animation animate">
+                                <input type="text" name="email" value="" placeholder="Your Email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group animation-3 add-animation animate">
+                                <input type="text" name="subject" value="" placeholder="Subject of contact" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group animation-1 add-animation animate">
+                                <textarea class="form-control" name="content" placeholder="Here you can write your nice text" rows="5"></textarea>
+                            </div>
+                            <div>
+                                <div class="col-md-2 col-md-offset-5">
+                                    <button type="button" class="btn btn-lg btn-black btn-contact">
+                                    SEND <i class="fa fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Section "Contact" example 1: Form Style 1 -->
+
+    <footer class="footer footer-color-black" data-color="black">
+        <div class="container">
+            <nav class="pull-left">
+                <ul>
+                    <li>
+                        <a href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           Blog
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="social-area pull-right">                
+                <a href="https://www.instagram.com/penelope.calenti.swimwear/" target="_blank">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                © 2022 Made By Michael Kefalas
+            </div>
+        </div>
+    </footer>
+    </div>  
+    <!--  Here are the examples of the content for each project that is viewed inside of the page. You can create how many projects you want if you set the specific #id      
+    -->
+    <div class="project-content" id="project_2">
+      <div>
+        <div class="project-details">
+          <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
+          <div class="container">
+            <div class="project-title">
+              <h2>Ephoria</h2>
+              <div class="separator-container">
+                  <div class="separator line-separator">✻</div>
+                </div>
+                <p>(n) euphoria; A feeling or state of intense excitement and happiness.</p>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="article">
+                  <div class="project-image">
+                     <img alt="..." src="/media/penelope/DSC_0553.jpg">
+                  </div>
+                  <div class="project-text">
+                      <h3>pronunciation | E-pho-ri-a <span>.</span></h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, tempora.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum consectetur perspiciatis nostrum perferendis eum soluta assumenda eos explicabo quo commodi.<span>.</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="body-layer"></div>
 {% endblock %}
