@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'glyphicons-halflings-regular';
+	src:url('/static/fonts/Glyphicons/glyphicons-halflings-regular.otf') format("opentype");
+	src:url('/static/fonts/Glyphicons/glyphicons-halflings-regular.eot');
+	src:url('/static/fonts/Glyphicons/glyphicons-halflings-regular.eot') format('embedded-opentype'),
+		url('/static/fonts/Glyphicons/glyphicons-halflings-regular.woff') format('woff'),
+		url('/static/fonts/Glyphicons/glyphicons-halflings-regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Verlag-Book';
+	src:url('/static/fonts/Verlag-Book/Verlag-Bold.otf') format("opentype");
+	src:url('/static/fonts/Verlag-Book/Verlag-Bold.eot');
+	src:url('/static/fonts/Verlag-Book/Verlag-Bold.eot') format('embedded-opentype'),
+		url('/static/fonts/Verlag-Book/Verlag-Bold.woff') format('woff'),
+		url('/static/fonts/Verlag-Book/Verlag-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Slim-Joe';
+	src:url('/static/fonts/Slim-Joe/Slim-Joe.eot');
+	src:url('/static/fonts/Slim-Joe/Slim-Joe.eot') format('embedded-opentype'),
+		url('/static/fonts/Slim-Joe/Slim-Joe.woff') format('woff'),
+		url('/static/fonts/Slim-Joe/Slim-Joe.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

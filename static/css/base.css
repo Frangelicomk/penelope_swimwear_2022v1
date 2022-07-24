@@ -1,0 +1,5 @@
+@media (max-width: 362px) {
+    .section-header .content h1 {
+        font-size: 3.4em !important;
+    }
+}
