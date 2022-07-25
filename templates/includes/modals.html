@@ -8,8 +8,7 @@
             <h2>{{ product.name }}</h2>
             <div class="separator-container">
                 <div class="separator line-separator">✻</div>
-              </div>
-              <p>{{ product.description }}</p>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -22,9 +21,11 @@
                     {% endif %}
                 </div>
                 <div class="project-text">
-                    <h3>pronunciation | E-pho-ri-a <span>.</span></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, tempora.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum consectetur perspiciatis nostrum perferendis eum soluta assumenda eos explicabo quo commodi.<span>.</span></p>
+                    <h3>£{{ product.price }}</h3>
+                    <p>{{ product.description }}</p>
+                <button class="btn btn-lg btn-black">
+                  Add {{ product.name }} to Bag <i class="fas fa-shopping-bag fa-sm"></i>
+                </button>
                 </div>
               </div>
             </div>
