@@ -67,12 +67,7 @@
 </head>
 
 <body class="skrollr-body">
-  <div class="loading ">
-    <div class="loading-container">
-        <p>Summer Collection is Loading</p>
-        <img class="loader" src="/static/img/rubik.svg"/>
-    </div>
-  </div>
+  {% include 'includes/loader.html' %}
   {% include 'includes/main-nav.html' %}
 
   {% if messages %}

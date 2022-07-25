@@ -41,6 +41,10 @@ body{
     margin-bottom: 0px!important;
 }
 
+.bag-container {
+    height: 60vh!important;
+}
+
 @media (max-width: 362px) {
     .section-header .content h1 {
         font-size: 3.4em !important;

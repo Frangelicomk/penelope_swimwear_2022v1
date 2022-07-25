@@ -1,0 +1,10 @@
+<div class="loading ">
+    <div class="loading-container">
+        {% if request.get.view_bag %}
+        <p>Your Bag is loading</p>
+        {% else %}
+        <p>Summer Collection is Loading</p>
+        {% endif %}
+        <img class="loader" src="/static/img/rubik.svg"/>
+    </div>
+</div>
