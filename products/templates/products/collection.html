@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+  <!-- Section "Our Projects" example 3: 2 Columns Boxed -->
+  <div class="section section-we-made-3 section-with-hover" id="projects">
+      <div class="text-area">
+          <div class="title add-animation animate">
+              <h2>Epimoní Collection</h2>
+              <div class="separator-container">
+                  <div class="separator line-separator">✻</div>
+              </div>
+              <p>Μια μικρή απόφαση χρειάζεται λογική…
+                Μια μεγάλη ένστικτο και επιμονή!
+                “The Epimoní Swimwear Collection 2022”</p>
+          </div>
+      </div>
+    </div>     
+    <div class="section">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+              {{ products }}
+        </div>
+      </div>
+    </div>
+  <!-- End of Collections Section -->
+{% endblock %}

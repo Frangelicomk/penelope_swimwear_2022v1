@@ -78,12 +78,16 @@
   {% if messages %}
     <div class="message-container"></div>
   {% endif %}
+    <div class="wrapper">
+      {% block page_header %}
+      {% endblock %}
+    
+      {% block content %}
+      {% endblock %}
+      {% include 'includes/footer.html' %}
+    </div>
 
-  {% block page_header %}
-  {% endblock %}
-
-  {% block content %}
-  {% endblock %}
+  {% include 'includes/modals.html' %}
 
   {% block postloadjs %}
   {% endblock %}
