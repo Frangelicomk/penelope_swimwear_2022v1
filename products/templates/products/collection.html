@@ -30,13 +30,15 @@
           {% else %}
           <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
           {% endif %}
-          <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
-              <div class="content">
-                  <h4>{{ product.name }}</h4>
-                  <p>{{ product.description }}</p>
-                  <p>Click for more details...</p>
-              </div>
-          </a>
+          <div class="over-area over-area-sm" onClick="" data-target="{{ product.name }}">
+            <div class="content">
+              <h4>{{ product.name }}</h4>
+                <p>{{ product.description}}</p>
+            </div>
+             <button class="btn hidden-sm hidden-xs" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
+                   More Details
+            </button>
+          </div>
         </div>
       </div>
     {% endfor %}
