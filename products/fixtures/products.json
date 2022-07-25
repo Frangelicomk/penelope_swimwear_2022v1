@@ -1,0 +1,53 @@
+[{
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "epfbc12022",
+      "name": "Epitomi",
+      "description": "(n) epitome; A person or thing that is a perfect example of a particular quality or type.",
+      "price": 90.00,
+      "category": 1,
+      "collection": 1,
+      "image_url": "",
+      "image": ""
+    }
+  }, {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "efbic12022",
+      "name": "Ephoria",
+      "description": "(n) euphoria; A feeling or state of intense excitement and happiness.",
+      "price": 100.00,
+      "category": 2,
+      "collection": 1,
+      "image_url": "",
+      "image": ""
+    }
+  }, {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "elfbc12022",
+      "name": "Elpida",
+      "description": "(n) hope; A feeling of expectation and desire for a particular thing to happen.",
+      "price": 90.00,
+      "category": 3,
+      "collection": 1,
+      "image_url": "",
+      "image": ""
+    }
+  }, {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "etbic12022",
+      "name": "Ethiki",
+      "description": "(n) ethic; A set of moral principles, especially ones relating to or affirming a specified group, field, or form of conduct.",
+      "price": 100.00,
+      "category": 4,
+      "collection": 1,
+      "image_url": "",
+      "image": ""
+    }
+  }]
