@@ -1,9 +1,9 @@
 <div class="loading ">
     <div class="loading-container">
-        {% if request.get.view_bag %}
-        <p>Your Bag is loading</p>
+        {% if '/bag/' in request.path %}
+        <p>Loading your bag...</p>
         {% else %}
-        <p>Summer Collection is Loading</p>
+        <p>Summer Collection is Loading...</p>
         {% endif %}
         <img class="loader" src="/static/img/rubik.svg"/>
     </div>
