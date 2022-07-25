@@ -2,6 +2,14 @@ body{
     overflow-x: hidden;
 }
 
+.navbar-burger.navbar-transparent .navbar-toggle .icon-bar {
+    background: chocolate!important;
+}
+
+.navbar-brand {
+    color: chocolate!important;
+}
+
 .main-logo-link {
     width: 120px;
 }

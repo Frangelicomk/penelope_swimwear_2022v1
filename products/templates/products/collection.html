@@ -6,7 +6,11 @@
   <div class="text-area">
      <div class="title">
          <h5 class="text-gray">Summer 2022</h5>
+         {% if request.user.is_superuser %}
+         <h2>Here you can view and manage your Collection</h2>
+         {% else %}
          <h2>Epimoni Collection</h2>
+         {% endif %}
          <div class="separator-container">
              <div class="separator line-separator">✻</div>
          </div>

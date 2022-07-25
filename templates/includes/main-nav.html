@@ -19,20 +19,21 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" data-scroll="true"> 
-                    About
+                    <a href="{% url 'home' %}" data-scroll="true"> 
+                    Home Page
                     </a>
                 </li>
                 {% if request.user.is_superuser %}
                   <li>
-                    <a href="" data-scroll="true">Manage Collection</a>
+                    <a href="{% url 'products' %}" data-scroll="true">Manage Collection</a>
                   </li>
-                {% endif %}
+                {% else %}
                 <li>
                     <a href="{% url 'products' %}" data-scroll="true">
                     The Collection
                     </a>
                 </li>
+                {% endif %}
                 {% if request.user.is_authenticated %}
                 <li>
                   <a href="" data-scroll="true"> 
@@ -54,7 +55,7 @@
                 {% endif %}
                 
                 <li class="list-inline-item">
-                  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href=""><i class="fas fa-shopping-bag fa-lg"></i> My Bag 
+                  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}"><i class="fas fa-shopping-bag fa-lg"></i> My Bag 
                         <p class="my-0">
                             {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
