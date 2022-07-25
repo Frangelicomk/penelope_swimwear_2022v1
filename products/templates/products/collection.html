@@ -2,29 +2,40 @@
 {% load static %}
 
 {% block page_header %}
+<div class="section section-we-made-1">
+  <div class="text-area">
+     <div class="title">
+         <h5 class="text-gray">Summer 2022</h5>
+         <h2>Epimoni Collection</h2>
+         <div class="separator-container">
+             <div class="separator line-separator">✻</div>
+         </div>
+     </div>
+  </div>
+</div>
 {% endblock %}
 
-{% block content %}
-  <!-- Section "Our Projects" example 3: 2 Columns Boxed -->
-  <div class="section section-we-made-3 section-with-hover" id="projects">
-      <div class="text-area">
-          <div class="title add-animation animate">
-              <h2>Epimoní Collection</h2>
-              <div class="separator-container">
-                  <div class="separator line-separator">✻</div>
+{% block content %} 
+<div class="section section-we-made-3 section-with-hover">
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-3 col-sm-6 col-12 product-card">
+        <div class="project add-animation animation-1">
+          {% if product.image %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" >
+          {% else %}
+          <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+          {% endif %}
+          <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
+              <div class="content">
+                  <h4>{{ product.name }}</h4>
+                  <p>{{ product.description }}</p>
+                  <p>Click for more details...</p>
               </div>
-              <p>Μια μικρή απόφαση χρειάζεται λογική…
-                Μια μεγάλη ένστικτο και επιμονή!
-                “The Epimoní Swimwear Collection 2022”</p>
-          </div>
-      </div>
-    </div>     
-    <div class="section">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-              {{ products }}
+          </a>
         </div>
       </div>
-    </div>
-  <!-- End of Collections Section -->
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

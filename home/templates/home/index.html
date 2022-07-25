@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="section section-header" id="header1">
+<div class="section section-header">
     <div class="parallax pattern-image filter filter-color-black" data-color="black">
         <img alt="..." src="/media/penelope/IMG_8104.jpeg" class="hidden-xs hidden-sm"><div class="responsive-background"></div>
         <div class="container">
@@ -15,20 +15,20 @@
                 <h5>Swimwear Collection 2022</h5>
                 <div>
                     <h4>
-                        <a href="" class="shop-now-button btn btn-lg text-uppercase py-3">Shop “Epimoní”</a>
+                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg text-uppercase py-3">Shop “Epimoní”</a>
                     </h4>
                 </div>
             </div>
         </div>
     </div>
-    <a href="{% url 'home' %}#whoWeAre" role="button" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm">
+    <a href="{% url 'home' %}#main-section-mk" role="button" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm">
         <i class="fa fa-angle-down"></i>
     </a>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="section section-we-are-2" id="whoWeAre">
+<div class="section section-we-are-1" id="main-section-mk">
     <div class="text-area">
         <div class="container">
             <div class="row">
@@ -51,103 +51,42 @@
             </div>
         </div>
     </div>
-    <div class="parallax full-image pattern-image">
-        <img alt="..." class="parallax-img" src="/media/penelope/DSC_0426.jpg">
-    </div>
 </div>
-
-
-<!-- Section "Our Projects" example 3: 2 Columns Boxed -->
-<div class="section section-we-made-3 section-with-hover" id="projects">
-    <div class="text-area">
-        <div class="title add-animation animate">
-            <h2>Epimoní Collection</h2>
-            <div class="separator-container">
-                <div class="separator line-separator">✻</div>
-            </div>
-            <p>Μια μικρή απόφαση χρειάζεται λογική…
-                Μια μεγάλη ένστικτο και επιμονή!
-                “The Epimoní Swimwear Collection 2022”</p>
-        </div>
-    </div>
-    <div class="row" id="projectsLine1">
-        <div class="col-md-3 col-sm-6 col-12 product-card">
-            <div class="project add-animation animation-2">
-                    <img src="/media/penelope/DSC_0553.jpg"/>
-                    <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                        <div class="content">
-                            <h4>Great sound changes everything.</h4>
-                            <p>Turn your daytrip into a disco, make your picnic a party, watch while you work, boogie on the beach, and bring crisp, clear sound wherever you go. Because great sound makes everything better.</p>
-                            <p>Click for more details...</p>
-                        </div>
-                    </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12 product-card">
-            <div class="project add-animation animation-1">
-                    <img src="/media/penelope/DSC_0426.jpg"/>
-                    <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                        <div class="content">
-                            <h4 >The App.</h4>
-                            <p>Our app for iPhone and iPad.
-                            Made for you to hear more. More trending tracks. More of your favorite artists. More of the music & audio you love. The SoundCloud app lets you hear more of what you want to hear. Sounds good, doesn’t it?</p>
-                            <p>Click for more details...</p>
-                        </div>
-                    </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12 product-card">
-            <div class="project add-animation animation-2">
-                    <img src="/media/penelope/DSC_0426.jpg"/>
-                    <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                        <div class="content">
-                            <h4 >The App.</h4>
-                            <p>Our app for iPhone and iPad.
-                            Made for you to hear more. More trending tracks. More of your favorite artists. More of the music & audio you love. The SoundCloud app lets you hear more of what you want to hear. Sounds good, doesn’t it?</p>
-                            <p>Click for more details...</p>
-                        </div>
-                    </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12 product-card">
-            <div class="project add-animation animation-3">
-                    <img src="/media/penelope/DSC_0426.jpg"/>
-                    <a class="over-area " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                        <div class="content">
-                            <h4 >The App.</h4>
-                            <p>Our app for iPhone and iPad.
-                            Made for you to hear more. More trending tracks. More of your favorite artists. More of the music & audio you love. The SoundCloud app lets you hear more of what you want to hear. Sounds good, doesn’t it?</p>
-                            <p>Click for more details...</p>
-                        </div>
-                    </a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of Collections Section -->
-
-<!-- Section "Team" example 1: Title & Full Image -->
-<div class="section section-team-1" id="team1">
+<div class="section section-we-made-3 section-with-hover">
     <div class="container">
         <div class="text-area">
-            <div class="title">
-                <h2>Swimwear 2022 Collection</h2>
-                <div class="separator-container">
-                    <div class="separator line-separator">✻</div>
+             <div class="title add-animation">  
+               <h2>Our Projects</h2>
+               <div class="separator-container">
+                  <div class="separator line-separator">♦</div>
+               </div>
+               <p>We are keen on creating a second skin for anyone with a sense of style! We design our clothes having our customers in mind and we never disappoint! </p>
+           </div> 
+        </div>
+
+        <div class="row">
+        {% for product in products %}
+          <div class="col-lg-4 col-md-6">
+            <div class="project add-animation animation-1">
+               <img src="{{ product.image.url }}">
+               <div class="over-area over-area-sm" onClick="rubik.showModal(this)" data-target="{{ product.name }}_1">
+                  <div class="content">
+                    <h4>{{ product.name }}</h4>
+                      <p>We've been working with Kingsman Studios and we are proud that...</p>
+                  </div>
+                   <button class="btn hidden-sm hidden-xs" onClick="rubik.showModal(this)" data-target="{{ product.name }}_1">
+                         More Details
+                  </button>
                 </div>
-                <p class="text-gray">By Penelope</p>
             </div>
+          </div>
+        {% endfor %}
+        
         </div>
     </div>
-    <div class="full-image gradient-image">
-        <img alt="..." src="/media/penelope/EC6C1BBF-B061-4C4B-99E3-FE5C3D147BA1.jpeg">
-    </div>
 </div>
-<!-- End Section "Team" example 1: Description & Full Image -->
-
-
 <!-- Section "Contact" example 1: Form Style 1 -->
-<div class="section section-contact-1" id="contact1">
+<div class="section section-contact-1">
     <div class="container">
         <div class="text-area">
             <div class="title add-animation animate">

@@ -1,20 +1,25 @@
-<div class="project-content" id="project_2">
+{% for product in products %}
+<div class="project-content" id="{{ product.name }}">
     <div>
       <div class="project-details">
         <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
         <div class="container">
           <div class="project-title">
-            <h2>Ephoria</h2>
+            <h2>{{ product.name }}</h2>
             <div class="separator-container">
                 <div class="separator line-separator">✻</div>
               </div>
-              <p>(n) euphoria; A feeling or state of intense excitement and happiness.</p>
+              <p>{{ product.description }}</p>
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <div class="article">
                 <div class="project-image">
-                   <img alt="..." src="/media/penelope/DSC_0553.jpg">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" >
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    {% endif %}
                 </div>
                 <div class="project-text">
                     <h3>pronunciation | E-pho-ri-a <span>.</span></h3>
@@ -28,3 +33,4 @@
       </div>
     </div>
 </div>
+{% endfor %}

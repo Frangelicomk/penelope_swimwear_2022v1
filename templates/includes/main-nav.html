@@ -7,8 +7,8 @@
             <span class="icon-bar bar2"></span>
             <span class="icon-bar bar3"></span>
             </button>
-            <a href="#">
-              <img src="/media/penelope/IMG_9541.png" alt=".." class="main-logo-link">
+            <a href="{% url 'home' %}">
+              Penelope
             </a>
         </div>
         <div class="collapse navbar-collapse">
@@ -29,7 +29,7 @@
                   </li>
                 {% endif %}
                 <li>
-                    <a href="" data-scroll="true">
+                    <a href="{% url 'products' %}" data-scroll="true">
                     The Collection
                     </a>
                 </li>
