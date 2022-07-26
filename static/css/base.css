@@ -39,6 +39,11 @@ body{
     color: chocolate!important;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .product-card {
     padding: 0px!important;
     margin-bottom: 0px!important;
