@@ -45,7 +45,7 @@ body{
 }
 
 .bag-container {
-    height: 60vh!important;
+    height: 100%!important;
 }
 
 @media (max-width: 362px) {
