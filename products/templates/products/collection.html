@@ -30,7 +30,7 @@
           {% else %}
           <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
           {% endif %}
-          <div class="over-area over-area-sm" onClick="" data-target="{{ product.name }}">
+          <div class="over-area over-area-sm" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
             <div class="content">
               <h4>{{ product.name }}</h4>
                 <p>{{ product.description}}</p>

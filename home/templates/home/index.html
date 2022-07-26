@@ -15,7 +15,7 @@
                 <h5>Swimwear Collection 2022</h5>
                 <div>
                     <h4>
-                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg text-uppercase py-3">Shop “Epimoní”</a>
+                        <a href="{% url 'products' %}" class="btn btn-outline-white text-uppercase">Shop “Epimoní”</a>
                     </h4>
                     <h6>Free delivery on orders over £{{ free_delivery_threshold }}!</h6>
                 </div>
@@ -72,7 +72,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="project add-animation animation-1">
                <img src="{{ product.image.url }}">
-               <div class="over-area over-area-sm" onClick="" data-target="{{ product.name }}">
+               <div class="over-area over-area-sm" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
                   <div class="content">
                     <h4>{{ product.name }}</h4>
                       <p>{{ product.description}}</p>

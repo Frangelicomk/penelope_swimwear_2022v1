@@ -26,14 +26,17 @@ body{
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
+.btn-outline-white {
+    background: transparent;
+    color: white!important;
+    border: 1px solid white;
+}
+
+.btn-outline-white:hover,
+.btn-outline-white:active,
+.btn-outline-white:focus {
+    background: transparent;
+    color: chocolate!important;
 }
 
 .product-card {
