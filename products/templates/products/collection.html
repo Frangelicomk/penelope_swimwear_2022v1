@@ -2,6 +2,30 @@
 {% load static %}
 
 {% block page_header %}
+{% if request.user.is_superuser %}
+{% else %}
+<div class="section section-header">
+  <div class="parallax pattern-image filter filter-color-black" data-color="black">
+      <img alt="..." src="/media/penelope/IMG_8104.jpeg" class="hidden-xs hidden-sm"><div class="responsive-background"></div>
+      <div class="container">
+          <div class="content content-with-opacity">
+              <p><span>by </span>Penelope Calenti</p>
+              <h1>“Epimoní”</h1>
+              <div class="separator-container">
+                  <div class="separator line-separator">⌘</div>
+              </div>
+              <h5>Scroll To view the collection</h5>
+          </div>
+      </div>
+  </div>
+  <a href="" role="button" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm">
+      <i class="fa fa-angle-down"></i>
+  </a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %} 
 <div class="section section-we-made-1">
   <div class="text-area">
      <div class="title">
@@ -17,16 +41,13 @@
      </div>
   </div>
 </div>
-{% endblock %}
-
-{% block content %} 
 <div class="section section-we-made-3 section-with-hover">
   <div class="row">
     {% for product in products %}
-      <div class="col-md-3 col-sm-6 col-12 product-card">
+      <div class="col-md-3 col-sm-6 col-12 product-card content-center">
         <div class="project add-animation animation-1">
           {% if product.image %}
-          <img src="{{ product.image.url }}" alt="{{ product.name }}" >
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
           {% else %}
           <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
           {% endif %}
