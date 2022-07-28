@@ -18,6 +18,11 @@
                     <i class="fa fa-instagram"></i> Instagram
                   </a>
               </li>
+              {% if request.user.is_superuser %}
+              <li>
+                <a href="{% url 'products' %}" data-scroll="true">My Dashboard</a>
+              </li>
+              {% endif %}
               <li>
                   <a href="{% url 'home' %}" data-scroll="true">Home Page</a>
               </li>
@@ -25,17 +30,12 @@
                 <a href="{% url 'products' %}" data-scroll="true">The Collection</a>
               </li>
               {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                <li>
-                  <a href="{% url 'products' %}" data-scroll="true">Manage Collection</a>
-                </li>
-                {% endif %}
-                <li>
-                  <a href="" data-scroll="true">My Dashboard</a>
-                </li>
-                <li>
-                  <a href="{% url 'account_logout' %}" data-scroll="true">Logout</a>
-                </li>
+              <li>
+                <a href="{% url 'profile' %}" data-scroll="true">My Profile</a>
+              </li>
+              <li>
+                <a href="{% url 'account_logout' %}" data-scroll="true">Logout</a>
+              </li>
               {% else %}
               <li>
                 <a href="{% url 'account_login' %}" data-scroll="true">Login</a>

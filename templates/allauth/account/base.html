@@ -1,1 +1,25 @@
 {% extends "base.html" %}
+
+
+{% block content %}
+<div class="section section-we-are-1" id="whoWeAre">
+    <div class="text-area">
+        <div class="container">
+            <div class="row">
+                <div class="title add-animation" id="animationTest">
+                    <h2>Penelope Calenti<br> Summer 2022 Collection</h2>
+                    <div class="separator-container">
+                      <div class="separator line-separator">♦</div>
+                    </div>
+                    <p class="large">
+                        Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
+                    </p>        
+                </div>
+                <div class="allauth-form-inner-content">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+            </div>          
+        </div>
+    </div>   
+{% endblock %}   

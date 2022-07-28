@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <a href="{% url 'home' %}#main-section-mk" role="button" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm">
+    <a href="" role="button" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm">
         <i class="fa fa-angle-down"></i>
     </a>
 </div>
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="title animate add-animation">
+                    <div class="title animate add-animation" id="animationTest">
                         <h5 class="text-gray">Epimoní</h5>
                         <h2>The Story Behind Epimoní</h2>
                         <div class="separator-container">
@@ -52,6 +52,9 @@
             </div>
         </div>
     </div>
+    <div class="parallax pattern-image hidden-xs">
+        <img class="parallax-img" src="/media/rubik_background2.jpg"/>
+    </div> 
 </div>
 <div class="section section-we-made-3 section-with-hover">
     <div class="container">
@@ -68,32 +71,59 @@
         </div>
 
         <div class="row">
-        {% for product in products %}
-          <div class="col-lg-3 col-md-6">
-            <div class="project add-animation animation-1">
-               <img src="{{ product.image.url }}">
-               <div class="over-area over-area-sm" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
-                  <div class="content">
-                    <h4>{{ product.name }}</h4>
-                      <p>{{ product.description}}</p>
-                  </div>
-                   <button class="btn hidden-sm hidden-xs" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
-                         More Details
-                  </button>
+            {% for product in products %}
+            <div class="col-lg-3 col-md-6">
+                <div class="project add-animation animation-1">
+                <img src="{{ product.image.url }}">
+                <div class="over-area over-area-sm" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
+                    <div class="content">
+                        <h4>{{ product.name }}</h4>
+                        <p>{{ product.description}}</p>
+                    </div>
+                    <button class="btn hidden-sm hidden-xs" onClick="rubik.showModal(this)" data-target="{{ product.name }}">
+                            More Details
+                    </button>
+                    </div>
                 </div>
             </div>
-          </div>
-        {% endfor %}
-        
+            {% endfor %}
         </div>
     </div>
 </div>
+<div class="section section-numbers-2" id="numbers">
+    <div class="parallax filter filter-color-1">
+        <img src="/media/penelope/EC6C1BBF-B061-4C4B-99E3-FE5C3D147BA1.jpeg">
+    </div>
+    <div class="container">
+        <div class="text-area">
+            <div class="title">
+                <h2>Hope you will enjoy the collection</h2>
+                <div class="separator-container">
+                  <div class="separator line-separator">♦</div>
+                </div>
+                <p>“The Epimoní Swimwear Collection 2022”</p>
+            </div>
+        </div>
+    
+        <div class="clearfix"></div>
+        <div class="row">
+           <div class="col-md-4 col-sm-4">
+               <div class="card card-plain">
+                   <h3>Customers</h3>
+                   <h5>Enterprises and small businesses</h5>
+                   <div class="number">
+                    5.382
+                   </div>
+               </div>
+           </div>
+        </div>          
+    </div>
+</div>
 <div class="btt-link btn" style="right:10px!important;position: absolute;z-index: 4;">
-    <a class="btt-link d-flex h-100">
+    <a class="btt-link">
         <i class="fa-solid fa-arrow-up"></i>
     </a>	
 </div>
-<!-- Section "Contact" example 1: Form Style 1 -->
 <div class="section section-contact-1">
     <div class="container">
         <div class="text-area">
