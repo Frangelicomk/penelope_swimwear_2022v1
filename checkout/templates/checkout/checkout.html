@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
+
 
 {% block page_header %}
 <div class="section section-header">
@@ -19,8 +21,108 @@
 <div class="section bag-container" style="margin-top: 120px;">
     <div class="container mb-2">
         <div class="row">
+            <p class="text-muted">Order Summary ({{ product_count }})</p>
+            <div class="col-12 col-lg-6 order-lg-last mb-5">
+                <div class="row">
+                    <div class="col-7 offset-2">
+                        <p class="mb-1 mt-2 small text-muted">Item</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                    </div>
+                </div>
+                {% for item in bag_items %}
+                <div class="row">
+                    <div class="col-2 mb-1">
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" alt="{{ product.name }}" style="max-width:20%!important;">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}" style="max-width:20%!important;">
+                        {% endif %}
+                    </div>
+                    <div class="col-7">
+                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        <p class="my-0 small">Size {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                        <p class="my-0 small text-muted">Qty {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <hr class="my-0">
+                <div class="row text-black text-right">
+                    <div class="col-7 offset-2">
+                        <p class="my-0">Order Total:</p>
+                        <p class="my-0">Delivery:</p>
+                        <p class="my-0">Grand Total</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0">£{{ total | floatformat:2 }}</p>
+                        <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Please fill out the form below to complete your order</p>
+                <form action="{% url 'checkout' %}" method="POST", id="payment-form">
+                   {% csrf_token %} 
+                    <fieldset>
+                        <legend>Details</legend>
+                        {{ order_form.full_name | as_crispy_field}}
+                        {{ order_form.email | as_crispy_field}}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Delivery</legend>
+                        {{ order_form.phone_number | as_crispy_field}}
+                        {{ order_form.country | as_crispy_field}}
+                        {{ order_form.postcode | as_crispy_field}}
+                        {{ order_form.town_or_city | as_crispy_field}}
+                        {{ order_form.street_address1 | as_crispy_field}}
+                        {{ order_form.street_address2 | as_crispy_field}}
+                        {{ order_form.county | as_crispy_field}}
+                        <div class="form-check form-check-inline float-right">
+                            {% if user.is_authenticated %}
+                                <label for="id-save-info" class="form-check-label">Save this delivery information to my profile</label>
+                                <input type="checkbox" class="form-check-input" id="id-save-info" name="save-info" checked>
+                            {% else %}
+                                <label for="if-save-info" class="form-check-label">
+                                    <a href="{% url 'account_signup' %}" class="text-info">Create an account</a> or 
+                                    <a href="{% url 'account_login' %}" class="text-info">Login</a> to save this information
+                                </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div id="card-element"></div>
+
+                        <!-- Used to display error forms -->
+                        <div id="card-errors" role="alert"></div>
+                    </fieldset>
+                    <div class="submit-button text-right">
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-black">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span>Adjust your Bag</span>
+                        </a>
+                        <button id="submit-button" class="btn btn-outline-black">
+                            <span class="font-weught-bold">Complete your Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                        <p class="small text-danger">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
