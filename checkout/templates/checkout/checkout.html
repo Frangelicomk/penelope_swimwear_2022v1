@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="section section-header">
+  <div class="text-area">
+     <div class="title">
+         <h5 class="text-gray">{{ request.user.username|capfirst }}</h5>
+         <h2>Thank you for shopping with us today!</h2>
+         <div class="separator-container">
+             <div class="separator line-separator">✻</div>
+         </div>
+     </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="section bag-container" style="margin-top: 120px;">
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Please fill out the form below to complete your order</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
