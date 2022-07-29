@@ -1,10 +1,10 @@
 {% for product in products %}
-<div class="project-content" id="{{ product.name }}">
+<div class="{{ product.name }}" id="{{ product.name }}" tab-index="-1" aria-labelledby="{{ product.name }}label" aria-hidden="true">
     <div>
-      <div class="project-details">
+      <div class="">
         <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-        <div class="container">
-          <div class="project-title">
+        <div class="">
+          <div class="modal-title">
             <h2>{{ product.name }}</h2>
             <div class="separator-container">
                 <div class="separator line-separator">✻</div>
