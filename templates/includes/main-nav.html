@@ -1,4 +1,4 @@
-<nav class="navbar navbar-nav navbar-default navbar-transparent navbar-fixed-top navbar-burger" role="navigation">
+<nav class="navbar" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
@@ -11,37 +11,37 @@
               Penelope
             </a>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right navbar-uppercase">
-              <li class="social-links">
+        <div class="">
+          <ul class="navbar-nav">
+              <li class="nav-item">
                   <a href="https://www.instagram.com/penelope.calenti.swimwear/" target="_blank"> 
                     <i class="fa fa-instagram"></i> Instagram
                   </a>
               </li>
               {% if request.user.is_superuser %}
-              <li>
-                <a href="{% url 'products' %}" data-scroll="true">My Dashboard</a>
+              <li class="nav-item">
+                <a href="{% url 'products' %}" data-scroll="true"><span class="link-text">My Dashboard</span></a>
               </li>
               {% endif %}
-              <li>
-                  <a href="{% url 'home' %}" data-scroll="true">Home Page</a>
+              <li class="nav-item">
+                  <a href="{% url 'home' %}" data-scroll="true"><span class="link-text">Home Page</span></a>
               </li>
-              <li>
-                <a href="{% url 'products' %}" data-scroll="true">The Collection</a>
+              <li class="nav-item">
+                <a href="{% url 'products' %}" data-scroll="true"><span class="link-text">The Collection</span></a>
               </li>
               {% if request.user.is_authenticated %}
-              <li>
-                <a href="{% url 'profile' %}" data-scroll="true">My Profile</a>
+              <li class="nav-item">
+                <a href="{% url 'profile' %}" data-scroll="true"><span class="link-text">My Profile</span></a>
               </li>
-              <li>
-                <a href="{% url 'account_logout' %}" data-scroll="true">Logout</a>
-              </li>
+              <li class="nav-item">
+                <a href="{% url 'account_logout' %}" data-scroll="true"><span class="link-text">Logout</span></a>
+              </li class="nav-item">
               {% else %}
-              <li>
-                <a href="{% url 'account_login' %}" data-scroll="true">Login</a>
+              <li class="nav-item">
+                <a href="{% url 'account_login' %}" data-scroll="true"><span class="link-text">login</span></a>
               </li>
-              <li>
-                <a href="{% url 'account_signup' %}" data-scroll="true">Register</a>
+              <li class="nav-item">
+                <a href="{% url 'account_signup' %}" data-scroll="true"><span class="link-text">Register</span></a>
               </li>
               {% endif %}
               
