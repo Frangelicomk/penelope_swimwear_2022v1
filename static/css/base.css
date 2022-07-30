@@ -10,30 +10,6 @@ body{
 /* Carousel CSS */
 
 /*End of  Carousel CSS */
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-    border: #222;
-}
-
-.btn-black {
-    background: black !important;
-    color: white;
-}
-
-.btn-outline-white {
-    background: transparent;
-    color: white!important;
-    border: 1px solid white;
-}
-
-.btn-outline-white:hover,
-.btn-outline-white:active,
-.btn-outline-white:focus {
-    background: transparent;
-    color: chocolate!important;
-}
 
 .update-link,
 .remove-item {
