@@ -52,14 +52,14 @@
         </li>
         <li class="nav-item">
           <a class="btn btn-primary btn-round" href="{% url 'view_bag' %}">
-            <i class="fa-solid fa-bag-shopping"></i> My Bag
+            <i class="fa-solid fa-bag-shopping"></i>
             <p class="my-0">
               {% if grand_total %}
                   £{{ grand_total|floatformat:2 }}
               {% else %}
                   £0.00
               {% endif %}
-          </p>
+            </p>
           </a>
         </li>
         <li class="nav-item">
