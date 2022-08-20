@@ -15,22 +15,22 @@
       <div class="row">
       {% for product in products %}
           <div class="col-lg-3 col-md-4">
-              <div class="card card-product card-plain">
+              <div class="card card-product card-plain h-100">
                   <div class="card-image">
                       <a href="">
                         <img src="{{ product.image.url }}" alt="Rounded Image" class="img-rounded img-responsive">
                       </a>
-                      <div class="card-body">
-                        <div class="card-description">
-                          <h5 class="card-title">{{ product.name }}</h5>
-                          <p class="card-description">{{ product.description}}</p>
-                        </div>
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
-                        {% if request.user.is_superuser %}
-                          <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                          <a href="{% url 'edit_product' product.id %}" class="btn btn-danger"><i class="fa-solid fa-delete-right"></i></a>
-                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                      <div class="card-description">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-description">{{ product.description}}</p>
                       </div>
+                      <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                      {% if request.user.is_superuser %}
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-danger"><i class="fa-solid fa-delete-right"></i></a>
+                      {% endif %}
                     </div>
               </div>
           </div>
