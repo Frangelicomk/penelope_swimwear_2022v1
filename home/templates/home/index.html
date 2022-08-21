@@ -18,61 +18,64 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row align-items-center">
-    <div class="col-md-4">
-      <div class="float-left">
-        <h2 class="title">Epimoní</h2>
-        <h5>The Story Behind Epimoní</h5>
-        <div class="separator-container">
-          <div class="separator line-separator">✻</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-7 col-md-offset-1">
-      <div class="float-right">
-        <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
-        </p>
-        <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
-        <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
-      </div>
-    </div>
-    <br />
-    <br />
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <a href="{% url 'products' %}" class="btn btn-danger btn-fill btn-round m-auto">Shop Collection</a>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <h3 class="section-title text-center">Epiponi Swimwear Collection</h3>
-  <div class="row">
-    {% for product in products %}
-    <div class="col-lg-3 col-md-4">
-      <div class="card card-product card-plain">
-        <div class="card-image">
-          <a href="{% url 'product_detail' product.id %}">
-            {% if product.image %}
-              <img class="img-responsive" src="{{ product.image.url }}" alt="{{ product.name }}">
-              {% else %}
-              <img class="img-responsive" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
-              {% endif %}
-          </a>
-          <div class="card-body">
-            <div class="card-description">
-              <h5 class="card-title">{{ product.name }}</h5>
-              <p class="card-description">{{ product.description|truncatechars:80 }}</p>
+<div class="wrapper">
+  <div class="section text-center landing-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <div class="float-left">
+            <h2 class="title">Epimoní</h2>
+            <h5>The Story Behind Epimoní</h5>
+            <div class="separator-container">
+              <div class="separator line-separator">✻</div>
             </div>
-            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
           </div>
         </div>
+        <div class="col-md-7 col-md-offset-1">
+          <div class="float-right">
+            <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
+            </p>
+            <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
+            <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+          </div>
+        </div>
+        <br />
+        <br />
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="{% url 'products' %}" class="btn btn-danger btn-fill btn-round m-auto">Shop Collection</a>
+        </div>
       </div>
     </div>
-    {% endfor %}
+    <div class="container">
+      <h3 class="section-title text-center">Epiponi Swimwear Collection</h3>
+      <div class="row">
+        {% for product in products %}
+        <div class="col-lg-3 col-md-4">
+          <div class="card card-product card-plain">
+            <div class="card-image">
+              <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
+                <img class="img-responsive" src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img class="img-responsive" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <div class="card-description">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-description">{{ product.description|truncatechars:80 }}</p>
+                </div>
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
-</div>
 </div>
 {% endblock %}
 {% block postloadjs %}
