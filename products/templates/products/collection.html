@@ -11,7 +11,11 @@
 {% block content %} 
 <div class="section lates-offers h-100">
   <div class="container container-fluid">
-      <h3 class="section-title mb-5">Epiponi Swimwear Collection</h3>
+      <h3 class="section-title mb-5">Epiponi Swimwear Collection
+      {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
+      {% endif %}
+    </h3>
       <div class="row">
       {% for product in products %}
           <div class="col-lg-3 col-md-4">
@@ -24,12 +28,12 @@
                     <div class="card-body">
                       <div class="card-description">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-description">{{ product.description}}</p>
+                        <p class="card-description">{{ product.description|truncatechars:80 }}</p>
                       </div>
                       <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
                       {% if request.user.is_superuser %}
                         <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{% url 'edit_product' product.id %}" class="btn btn-danger"><i class="fa-solid fa-delete-right"></i></a>
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                       {% endif %}
                     </div>
               </div>
@@ -38,4 +42,8 @@
       </div>
   </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

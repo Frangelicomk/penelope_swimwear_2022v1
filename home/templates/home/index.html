@@ -7,42 +7,38 @@
   <div class="content-center">
     <div class="container">
       <div class="motto">
-        <h1 class="title">Example page</h1>
-        <h3 class="description">Start designing your page w/ parallax</h3>
+        <h1 class="title">Epimoni Collection</h1>
+        <h3 class="description">By Penelope Calenti</h3>
         <br />
-        <a href="#" rel="nofollow" class="btn btn-neutral btn-round"><i class="fa fa-play"></i>Watch video</a>
-        <button type="button" class="btn btn-outline-neutral btn-round">Collection</button>
+        <a href="{% url 'products' %}" class="btn btn-neutral btn-round"><i class="fa fa-bag-shopping"></i>Shop
+          Collection</a>
       </div>
     </div>
   </div>
 </div>
-</div>
 {% endblock %}
-
 {% block content %}
-<div class="section text-center landing-section">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <div class="float-left">
-          <h2 class="title">Epimoní</h2>
-          <h5>The Story Behind Epimoní</h5>
-          <div class="separator-container">
-            <div class="separator line-separator">✻</div>
-          </div>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <div class="float-left">
+        <h2 class="title">Epimoní</h2>
+        <h5>The Story Behind Epimoní</h5>
+        <div class="separator-container">
+          <div class="separator line-separator">✻</div>
         </div>
       </div>
-      <div class="col-md-7 col-md-offset-1">
-        <div class="float-right">
-          <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
-          </p>
-          <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
-          <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
-        </div>
-      </div>
-      <br />
-      <br />
     </div>
+    <div class="col-md-7 col-md-offset-1">
+      <div class="float-right">
+        <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
+        </p>
+        <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
+        <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+      </div>
+    </div>
+    <br />
+    <br />
   </div>
   <div class="row">
     <div class="col-12">
@@ -50,34 +46,29 @@
     </div>
   </div>
 </div>
-<div class="section lates-offers">
-  <div class="container container-fluid">
-    <h3 class="section-title">Epiponi Swimwear Collection</h3>
-    <div class="row">
-
-      {% for product in products %}
-      <div class="col-lg-3 col-md-4">
-        <div class="card card-product card-plain">
-          
-          <div class="card-image">
-            <a href="{% url 'product_detail' product.id %}">
-              <img src="{{ product.image.url }}" alt="Rounded Image" class="img-rounded img-responsive">
-            </a>
-            
-            <div class="card-body">
-              <div class="card-description">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-description">{{ product.description}}</p>
-              </div>
-              <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+<div class="container">
+  <h3 class="section-title text-center">Epiponi Swimwear Collection</h3>
+  <div class="row">
+    {% for product in products %}
+    <div class="col-lg-3 col-md-4">
+      <div class="card card-product card-plain">
+        <div class="card-image">
+          <a href="{% url 'product_detail' product.id %}">
+            <img src="{{ product.image.url }}" alt="Rounded Image" class="img-rounded img-responsive">
+          </a>
+          <div class="card-body">
+            <div class="card-description">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-description">{{ product.description}}</p>
             </div>
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
           </div>
-          
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
+</div>
 </div>
 {% endblock %}
 {% block postloadjs %}
