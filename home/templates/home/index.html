@@ -54,12 +54,16 @@
       <div class="card card-product card-plain">
         <div class="card-image">
           <a href="{% url 'product_detail' product.id %}">
-            <img src="{{ product.image.url }}" alt="Rounded Image" class="img-rounded img-responsive">
+            {% if product.image %}
+              <img class="img-responsive" src="{{ product.image.url }}" alt="{{ product.name }}">
+              {% else %}
+              <img class="img-responsive" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
+              {% endif %}
           </a>
           <div class="card-body">
             <div class="card-description">
               <h5 class="card-title">{{ product.name }}</h5>
-              <p class="card-description">{{ product.description}}</p>
+              <p class="card-description">{{ product.description|truncatechars:80 }}</p>
             </div>
             <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
           </div>
