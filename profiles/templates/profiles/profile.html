@@ -2,30 +2,30 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
-<div class="section section-header">
-    <div class="parallax pattern-image filter filter-gradient-5"> 
-        <img src="/media/rubik_background2.jpg"/>
-
-        <div class="container">
-            <div class="content">
-                <p class="text-muted">Hello {{ request.user.username|capfirst }}!!<p>
-                <h1>Welcome to your profile</h1>
-                <div class="separator-container">
-                  <div class="separator line-separator"></div>
-                </div>
-                <h5>Here you can view your past orders and update your details</h5>
+<div class="parallax pattern-image filter filter-gradient-5">
+    <div class="page-header page-header-xs"
+        style="background-image: url('/media/penelope/8C005D0E-7A01-4591-AFE3-504C3BB9FDBA.jpeg');">
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to your profile {{ request.user.username|capfirst }}!!</h1>
+            <div class="separator-container">
+                <div class="separator line-separator"></div>
             </div>
+            <h5>Here you can view your past orders and update your details</h5>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
+<div class="profile-content section">
+
     <div class="container">
         <div class="row">
             <div class="col">
@@ -58,27 +58,27 @@
                         </thead>
                         <tbody>
                             {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}"
                                         title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>£{{ order.grand_total }}</td>
-                                </tr>
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {% if item.product.has_sizes %}
+                                            Size {{ item.product.size|upper }}
+                                            {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>£{{ order.grand_total }}</td>
+                            </tr>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -86,9 +86,10 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
