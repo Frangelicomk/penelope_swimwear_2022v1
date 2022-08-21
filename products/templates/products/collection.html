@@ -21,11 +21,13 @@
           <div class="col-lg-3 col-md-4">
               <div class="card card-blog">
                   <div class="card-image">
-                    {% if product.image %}
-                    <img class="img img-raised" src="{{ product.image.url }}" alt="{{ product.name }}">
-                    {% else %}
-                    <img class="img img-raised" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
-                    {% endif %}
+                    <a href="{% url 'product_detail' product.id %}">
+                      {% if product.image %}
+                      <img class="img-responsive" src="{{ product.image.url }}" alt="{{ product.name }}">
+                      {% else %}
+                      <img class="img-responsive" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
+                      {% endif %}
+                    </a>
                     </div>
                     <div class="card-body">
                       <div class="card-description">
