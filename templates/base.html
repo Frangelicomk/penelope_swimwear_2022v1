@@ -51,7 +51,9 @@
 </head>
 
 <body class="sidebar-collapse">
-  {% include 'includes/main-nav.html' %}
+  {% block nav %}
+    {% include 'includes/main-nav.html' %}
+  {% endblock %}
   
 
   {% if messages %}
@@ -77,8 +79,9 @@
   {% block content %}
   {% endblock %}
 
-
-  {% include 'includes/footer.html' %}
+  {% block footer %}
+    {% include 'includes/footer.html' %}
+  {% endblock %}
 
   {% block postloadjs %}
   <script type="text/javascript">
