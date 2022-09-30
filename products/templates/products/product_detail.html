@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block loader %}
+{% endblock %}
 {% block page_header %}
 <div class="page-header page-header-xs"
   style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
@@ -73,8 +74,8 @@
           <hr />
           <p>{{ product.description }}</p>
           <span class="label label-default shipping">Free shipping to Europe </span>
-          <div class="row">
-            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+          <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+              <div class="row">
               {% csrf_token %}
               {% with product.has_sizes as s %}
               <div class="col-md-6 col-sm-6">
@@ -82,7 +83,7 @@
                 <label>Select Size</label>
                 <div class="form-group" style="width: 120px;">
                   <select name="huge" class="selectpicker" data-style="btn btn-outline-default btn-block btn-round"
-                    data-menu-style="">
+                    data-menu-style="" id='id_product_size'>
                     <option value="s">SMALL</option>
                     <option value="m">MEDIUM</option>
                     <option value="l" selected>LARGE</option>
@@ -119,7 +120,7 @@
           </div>
           <hr />
           <div class="row">
-            <div class="col-md-4 float-left col-sm-8 m-auto">
+            <div class="col p-0 m-1">
               <a href="{% url 'products' %}" class="btn btn-info btn-block btn-round">
                 <span class="icon">
                   <i class="fas fa-chevron-left">Collection</i>
@@ -127,14 +128,14 @@
                 
               </a>
             </div>
-            <div class="col-md-7 float-right col-sm-8 m-auto">
+            <div class="col p-0 m-1">
               <input type="submit" class="btn btn-danger btn-block btn-round" value="Add to Bag">
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
             {% endwith %}
           </div>
-          </form>
         </div>
+          </form>
       </div>
     </div>
   </div>

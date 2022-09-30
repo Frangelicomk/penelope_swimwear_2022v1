@@ -54,6 +54,10 @@
   {% block nav %}
     {% include 'includes/main-nav.html' %}
   {% endblock %}
+  {% block loader %}
+    {% include 'includes/loader.html' %}
+  {% endblock %}
+  
   
 
   {% if messages %}
@@ -113,6 +117,15 @@
 
   <!--  for Jasny fileupload -->
   <script src="{% static 'js/plugins/jasny-bootstrap.min.js' %}"></script>
+
+  <script>
+        setTimeout(function(){
+         $('.loading').css('opacity','0');
+         setTimeout(function(){
+             $('.loading').addClass('hide');
+         }, 500);
+     }, 500);
+  </script>
 </body>
 
 </html>
