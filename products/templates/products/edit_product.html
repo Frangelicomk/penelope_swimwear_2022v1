@@ -2,39 +2,152 @@
 {% load static %}
 
 {% block page_header %}
-<div class="page-header page-header-xs"
-    style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+<div class="page-header page-header-xs" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
     <div class="filter"></div>
 </div>
 {% endblock %}
 {% block content %}
 <div class="main">
     <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6">
-              <hr>
-              <h2 class="logo-font mb-4">Product Management</h2>
-              <h5 class="text-muted">Edit a Product</h5>
-              <hr>
-          </div>
-      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <hr>
+                    <h2 class="logo-font mb-4">Product Management</h2>
+                    <h5 class="text-muted">Edit a Product</h5>
+                    <hr>
+                </div>
+            </div>
 
-      <div class="row">
-          <div class="col-12 col-md-6">
-              <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {{ form | crispy }}
-                  <div class="text-right">
-                      <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                      <button class="btn btn-black rounded-0" type="submit">Update Product</button>
-                  </div>
-              </form>
-          </div>            
-      </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div>
+                            <div class="row">
+                                <div class="col-md-5 col-sm-5">
+                                    <h6>Product Image <span class="icon-danger">*</span></h6>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-no-padding">
+                                            {% if product.image %}
+                                            <img class="d-block img-fluid img-thumbnail" src="{{ product.image.url }}"
+                                                alt="{{ product.name }}">
+                                            {% else %}
+                                            <img class="d-block img-fluid img-thumbnail" src="{{ MEDIA_URL }}no-image-icon-23499.png"
+                                                alt="{{ product.name }}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-no-padding"
+                                            style="max-width: 370px; max-height: 250px;"></div>
+                                        <div>
+                                            <span class="btn btn-outline-default btn-round btn-file">
+                                                <span class="fileinput-new">Select image</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" name="image" accept="image/*" id="id_image"></span>
+                                            <a href="#" class="btn btn-link btn-danger fileinput-exists"
+                                                data-dismiss="fileinput">
+                                                <i class="fa fa-times"></i> Remove
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h6>Categories <span class="icon-danger">*</span></h6>
+                                    <div id="tags-2">
+                                        <div id="div_id_category" class="form-group">
+                                            <div>
+                                                <select name="category"
+                                                    class="border-black rounded-0 select form-control" id="id_category"
+                                                    required>
+                                                    <option value="1" {% if product.category == "epitomi" %} selected {% endif %}>Epitomi</option>
+                                                    <option value="2" {% if product.category == "ephoria" %} selected {% endif %}>Ephoria</option>
+                                                    <option value="3" {% if product.category == "elpida" %} selected {% endif %}>Elpida</option>
+                                                    <option value="4" {% if product.category == "ethiki" %} selected {% endif %}>Ethiki</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h6>Collection <span class="icon-danger">*</span></h6>
+                                    <div id="div_id_collection" class="form-group">
+                                        <div>
+                                            <select name="collection" class="border-black rounded-0 select form-control"
+                                                id="id_collection" required>
+                                                <option value="" selected="{{ product.collection }}">{{ product.collection }}</option>
+                                                <option value="1">epimoni</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-sm-7">
+                                    <div class="form-group">
+                                        <h6>Product name <span class="icon-danger">*</span></h6>
+                                        <input type="text" name="name" maxlength="254" id="id_name"
+                                            class="form-control border-input"
+                                            placeholder="enter the product name here..." required
+                                            value="{{ product.name }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <h6>Sku <span class="icon-danger">*</span></h6>
+                                        <input type="text" name="sku" maxlength="254" class="form-control border-input"
+                                            id="id_sku" placeholder="enter the product SKU number here..."
+                                            value="{{ product.sku }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row price-row">
+                                            <div class="col-md-6">
+                                                <h6>Price <span class="icon-danger">*</span></h6>
+                                                <div class="input-group border-input">
+                                                    <input type="number" name="price" step="0.01"
+                                                        class="form-control border-input" id="id_price"
+                                                        placeholder="enter price" value="{{ product.price }}" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i
+                                                                class="fa fa-sterling-sign"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6>Has Sizes</h6>
+                                                <div class="input-group border-input">
+                                                    <select name="has_sizes"
+                                                        class="border-black rounded-0 nullbooleanselect form-control"
+                                                        id="id_has_sizes">
+                                                        <option value="{{ product.size }}" selected>{{ product.size }}</option>
+                                                        <option value="unknown">Unknown</option>
+                                                        <option value="true">Yes</option>
+                                                        <option value="false">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6>Description <span class="icon-danger">*</span></h6>
+                                        <textarea name="description" cols="40" rows="10"
+                                            class="form-control textarea-limited"
+                                            placeholder="This is a textarea limited to 150 characters." required
+                                            id="id_description">{{ product.description }}</textarea>
+                                        <h5><small><span id="textarea-limited-message" class="pull-right">150 characters
+                                                    left</span></small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row buttons-row justify-content-end">
+                                <div class="col-md-4 col-sm-4">
+                                    <a class="btn btn-outline-danger btn-block btn-round py-2"
+                                        href="{% url 'products' %}">Cancel</a>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <button class="btn btn-primary btn-block btn-round py-2" type="submit">Update
+                                        Product</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-{% endblock %}
-{% block postloadjs %}
-{% include 'products/includes/quantity_input_script.html' %}
-{% endblock %}
+    {% endblock %}
+    {% block postloadjs %}
+    {% include 'products/includes/quantity_input_script.html' %}
+    {% endblock %}
