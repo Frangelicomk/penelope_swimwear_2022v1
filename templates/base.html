@@ -55,7 +55,10 @@
     {% include 'includes/main-nav.html' %}
   {% endblock %}
   {% block loader %}
+    {% if request.user.is_superuser %}
+    {% else %}
     {% include 'includes/loader.html' %}
+    {% endif %}
   {% endblock %}
   
   
