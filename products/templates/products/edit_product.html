@@ -59,10 +59,9 @@
                                                 <select name="category"
                                                     class="border-black rounded-0 select form-control" id="id_category"
                                                     required>
-                                                    <option value="1" {% if product.category == "epitomi" %} selected {% endif %}>Epitomi</option>
-                                                    <option value="2" {% if product.category == "ephoria" %} selected {% endif %}>Ephoria</option>
-                                                    <option value="3" {% if product.category == "elpida" %} selected {% endif %}>Elpida</option>
-                                                    <option value="4" {% if product.category == "ethiki" %} selected {% endif %}>Ethiki</option>
+                                                    {% for pk, category in product.categories %}
+                                                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
