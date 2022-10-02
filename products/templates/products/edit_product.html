@@ -59,9 +59,10 @@
                                                 <select name="category"
                                                     class="border-black rounded-0 select form-control" id="id_category"
                                                     required>
-                                                    {% for pk, category in product.categories %}
-                                                        <option value="{{ category.pk }}">{{ category.name }}</option>
-                                                    {% endfor %}
+                                                        <option value="">{{ product.category }}</option> 
+                                                        <option value="">{{ product.category }}</option> 
+                                                        <option value="">{{ product.category }}</option> 
+                                                        <option value="">{{ product.category }}</option> 
                                                 </select>
                                             </div>
                                         </div>
