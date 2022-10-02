@@ -41,10 +41,10 @@
                     <div>
                       <select name="category" class="border-black rounded-0 select form-control" id="id_category"
                         required>
-                        <option value="1">Epitomi</option>
-                        <option value="2">Ephoria</option>
-                        <option value="3">Elpida</option>
-                        <option value="4">Ethiki</option>
+                        <option value="" selected="">---------</option>
+                        {% for c in form.category %}
+                          <option value="{{ c.pk }}">{{ c }}</option>
+                        {% endfor %}
                       </select>
                     </div>
                   </div>
@@ -55,7 +55,9 @@
                     <select name="collection" class="border-black rounded-0 select form-control" id="id_collection"
                       required>
                       <option value="" selected="">---------</option>
-                      <option value="1">epimoni</option>
+                      {% for col in form.collection %}
+                        <option value="{{ col.pk }}">{{ col }}</option>
+                      {% endfor %}
                     </select>
                   </div>
                 </div>
