@@ -1,6 +1,7 @@
-from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 
 from .models import ContactFormEmails
@@ -33,21 +34,11 @@ def contactForm(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = "Contact form message"
-            body = {
-                'name': form.cleaned_data['name'],
-                'email': form.cleaned_data['email'],
-                'subject': form.cleaned_data['subject'],
-                'message': form.cleaned_data['message'],
-            }
-            message = "\n".join(body.values())
-
-            try:
-                send_mail(subject, message, 'no-reply@penelope_c.com',
-                          ['frangelicomk87@gmail.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect("main:index")
-
-        form = ContactForm()
-        return render(request, "home/index.html", {'form': form})
+            form.save()
+            email_subject = f'New contact {form.cleaned_data["email"]}: {form.cleaned_data["subject"]}'
+            email_message = form.cleaned_data['message']
+            send_mail(email_subject, email_message, settings.CONTACT_EMAIL, settings.ADMIN_EMAIL)
+            return render(request, 'home/index.html')
+    form = ContactForm()
+    context = {'form': form}
+    return render(request, 'home/index.html', context)
