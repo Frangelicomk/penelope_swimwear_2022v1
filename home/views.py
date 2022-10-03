@@ -1,8 +1,10 @@
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import ContactForm
+from django.http import HttpResponseRedirect, HttpResponse
 
+from .models import ContactFormEmails
+from .forms import ContactForm
 # Create your views here.
 
 
@@ -11,23 +13,41 @@ def index(request):
 
     return render(request, 'home/index.html')
 
+# function to send the form to back-end
 
-def contactView(request):
-    if request.method == "GET":
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
+
+def contact(request):
+    if request.method == 'POST':
+        contactFormEmail = ContactFormEmails(name=request.POST.get('name'), email=request.POST.get(
+            'email'), subject=request.POST.get(
+            'subject'), message=request.POST.get('message'))
+        contactFormEmail.save()
+
+        messages.success(
+            request, "Your message has been successfully send! Thank you")
+        return HttpResponseRedirect('/')
+
+
+def contactForm(request, product_id):
+    """ send email with contact form """
+    if request.method == 'POST':
+        form = ContactForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
-            subject = form.cleaned_data["subject"]
-            from_email = form.cleaned_data["from_email"]
-            message = form.cleaned_data['message']
+            subject = "Contact form message"
+            body = {
+                'name': form.cleaned_data['name'],
+                'email': form.cleaned_data['email'],
+                'subject': form.cleaned_data['subject'],
+                'message': form.cleaned_data['message'],
+            }
+            message = "\n".join(body.values())
+
             try:
-                send_mail(subject, message, from_email, ["admin@example.com"])
+                send_mail(subject, message, 'no-reply@penelope_c.com',
+                          ['frangelicomk87@gmail.com'])
             except BadHeaderError:
-                return HttpResponse("Invalid header found.")
-            return redirect("success")
-    return render(request, "home/index.html", {"form": form})
+                return HttpResponse('Invalid header found.')
+            return redirect("main:index")
 
-
-def successView(request):
-    return HttpResponse("Success! Thank you for your message.")
+        form = ContactForm()
+        return render(request, "/", {'form': form})
