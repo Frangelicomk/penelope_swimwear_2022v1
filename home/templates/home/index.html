@@ -73,6 +73,16 @@
     </div>
   </div>
 </div>
+<section>
+  <h1>Contact Us</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="form-actions">
+        <button type="submit">Send</button>
+      </div>
+  </form>
+</section>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
