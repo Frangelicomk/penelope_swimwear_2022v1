@@ -7,4 +7,3 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactFormEmails
         fields = '__all__'
-

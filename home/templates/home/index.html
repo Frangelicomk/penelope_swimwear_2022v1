@@ -79,7 +79,7 @@
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto text-center">
           <h3 class="title">Contact Me If You Have Any Queries!</h3>
-          <form class="contact" action="{% url 'contact' %}" method="post" role="form" novalidate>
+          <form action="{% url 'message_sent' %}" method="post" role="form">
             {% csrf_token %}
             <div class="row">
               <div class="col-md-12">
