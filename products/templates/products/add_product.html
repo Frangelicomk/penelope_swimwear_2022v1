@@ -39,25 +39,14 @@
                 <div id="tags-2">
                   <div id="div_id_category" class="form-group">
                     <div>
-                      <select name="category" class="border-black rounded-0 select form-control" id="id_category"
-                        required>
-                        <option value="" selected="">---------</option>
-                        {% for c in form.category %}
-                          <option value="{{ c.pk }}">{{ c }}</option>
-                        {% endfor %}
-                      </select>
+                      {{form.category}}
                     </div>
                   </div>
                 </div>
                 <h6>Collection <span class="icon-danger">*</span></h6>
                 <div id="div_id_collection" class="form-group">
                   <div>
-                    <select name="collection" class="border-black rounded-0 select form-control" id="id_collection"
-                    required>
-                      {% for e in form.collection %}
-                        <option value="{{ e.pk }}">{{ e }}</option>
-                      {% endfor %}
-                    </select>
+                    {{form.collection}}
                   </div>
                 </div>
               </div>
@@ -87,12 +76,7 @@
                     <div class="col-md-6">
                       <h6>Has Sizes</h6>
                       <div class="input-group border-input">
-                        <select name="has_sizes" class="border-black rounded-0 nullbooleanselect form-control"
-                          id="id_has_sizes">
-                          <option value="unknown">Unknown</option>
-                          <option value="true">Yes</option>
-                          <option value="false" selected="">No</option>
-                        </select>
+                        {{form.has_sizes}}
                       </div>
                     </div>
                   </div>
