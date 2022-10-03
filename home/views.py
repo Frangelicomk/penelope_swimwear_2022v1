@@ -50,4 +50,4 @@ def contactForm(request):
             return redirect("main:index")
 
         form = ContactForm()
-        return render(request, "/", {'form': form})
+        return render(request, "home/index.html", {'form': form})
