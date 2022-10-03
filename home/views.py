@@ -28,10 +28,10 @@ def contact(request):
         return HttpResponseRedirect('/')
 
 
-def contactForm(request, product_id):
+def contactForm(request):
     """ send email with contact form """
     if request.method == 'POST':
-        form = ContactForm(request.POST, request.FILES, instance=product)
+        form = ContactForm(request.POST)
         if form.is_valid():
             subject = "Contact form message"
             body = {
