@@ -1,21 +1,33 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
-
-{% block inner_content %}
-<h1>{% trans "Sign Out" %}</h1>
-
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
-
-
+{% block page_header %}
+{% endblock %}
+{% block content %}
+<div class="login-page full-screen">
+  <div class="wrapper">
+    <div class="page-header" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+      <div class="filter"></div>
+      <div class="container">
+        <div class="row">
+          <h1>{% trans "Sign Out" %}</h1>
+          <p>{% trans 'Are you sure you want to sign out?' %}</p>
+        </div>
+        <div class="row">
+          <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="btn btn-danger btn-block btn-round" type="submit">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
 {% endblock %}
