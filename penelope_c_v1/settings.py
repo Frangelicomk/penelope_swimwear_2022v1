@@ -27,6 +27,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['penelope-c-epimoni.herokuapp.com', 'localhost']
 
+
 # Application definition
 
 INSTALLED_APPS = [
