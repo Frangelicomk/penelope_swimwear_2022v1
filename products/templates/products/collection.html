@@ -11,10 +11,12 @@
 {% block content %} 
 <div class="section lates-offers h-100">
   <div class="container container-fluid">
-      <h3 class="section-title mb-5">Epiponi Swimwear Collection
-      {% if request.user.is_superuser %}
-        <a href="{% url 'add_product' %}" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
-      {% endif %}
+    {% if request.user.is_superuser %}
+    <h3 class="section-title mb-5">{{ request.user.username|capfirst }} Click + to add a new Product
+    <a href="{% url 'add_product' %}" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
+    {% else %}
+    <h3 class="section-title mb-5">Epiponi Swimwear Collection
+    {% endif %}
     </h3>
       <div class="row">
       {% for product in products %}
