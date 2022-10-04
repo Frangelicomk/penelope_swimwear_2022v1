@@ -13,7 +13,6 @@ def index(request):
 
 # function to send the form to back-end
 
-
 def contactForm(request):
     """ send email with contact form """
     if request.method == 'POST':
