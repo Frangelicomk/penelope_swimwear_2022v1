@@ -60,7 +60,7 @@
               </a>
               <div class="card-body">
                 <div class="card-description">
-                  <h5 class="card-title">{{ product.name }}</h5>
+                  <h4 class="card-title">{{ product.name }}</h4>
                   <p class="card-description">{{ product.description|truncatechars:80 }}</p>
                 </div>
                 <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
