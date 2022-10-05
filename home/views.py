@@ -29,7 +29,7 @@ def contactForm(request):
     else:
         form = ContactForm()
 
-    template = 'home/index.html'
+    template = '/'
     context = {
         'form': form,
     }
