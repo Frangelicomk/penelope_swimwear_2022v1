@@ -29,9 +29,4 @@ def contactForm_submit(request):
             messages.error(request, 'Failed to send message. Please ensure the form is valid.')
     else:
         form = ContactForm()
-
-    context = {
-        'form': form,
-    }
-
-    return render(request, 'home/index.html', context)
+        return render(request, 'home/index.html')
