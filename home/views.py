@@ -30,9 +30,8 @@ def contactForm_submit(request):
     else:
         form = ContactForm()
 
-    template = '/'
     context = {
         'form': form,
     }
 
-    return render(request, template, context)
+    return render(request, 'home/index.html', context)
