@@ -22,33 +22,35 @@
         <div class="col-lg-3 col-md-4">
           <div class="card card-blog">
             <div class="card-image">
+              {% if product.image %}
               <a href="{% url 'product_detail' product.id %}">
-                {% if product.image %}
                 <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
                   src="{{ product.image.url }}" alt="{{ product.name }}">
-                {% else %}
-                <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
-                  src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
-                {% endif %}
               </a>
-            </div>
-            <div class="card-body">
-              <div class="card-description">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-description">{{ product.description|truncatechars:60 }}</p>
-              </div>
-              <div class="card-footer text-center">
-                {% if request.user.is_superuser %}
-                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary"><i
-                    class="fa-solid fa-eye"></i></a>
-                <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i
-                    class="fa-solid fa-pen-to-square"></i></a>
-                <a class=" btn btn-danger" href="{% url 'delete_product' product.id %}"><i
-                    class="fa-solid fa-times"></i></a>
                 {% else %}
-                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                <a href="{% url 'product_detail' product.id %}">
+                  <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
+                    src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
+                </a>
                 {% endif %}
-              </div>
+                <div class="card-body">
+                  <div class="card-description">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-description">{{ product.description|truncatechars:60 }}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary"><i
+                        class="fa-solid fa-eye"></i></a>
+                    <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i
+                        class="fa-solid fa-pen-to-square"></i></a>
+                    <a class=" btn btn-danger" href="{% url 'delete_product' product.id %}"><i
+                        class="fa-solid fa-times"></i></a>
+                    {% else %}
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                    {% endif %}
+                  </div>
+                </div>
             </div>
           </div>
         </div>
