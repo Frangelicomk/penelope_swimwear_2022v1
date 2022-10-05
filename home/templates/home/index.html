@@ -42,11 +42,85 @@
       </div>
     </div>
   </div>
-  <div class="blog-2 section section-gray">
+  <div class="section section-dark text-center landing-section">
+    <div class="container">
+      <h2 class="title">Epimoni, Meet The Team</h2>
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto my-4">
+          <div class="card card-profile card-plain">
+            <div class="card-avatar">
+              <img src="{% static '/img/penelope/penelope1.jpg' %}" alt="founder profile image">
+            </div>
+            <div class="card-body">
+              <a href="#paper-kit">
+                <div class="author">
+                  <h4 class="card-title">Penelope Calenti</h4>
+                  <h6 class="card-category text-muted">Founder</h6>
+                </div>
+              </a>
+              <p class="card-description text-center">
+                Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
+              </p>
+            </div>
+            <div class="card-footer text-center">
+              <a href="https://www.instagram.com/penelope.calenti.swimwear/" class="btn btn-link btn-just-icon btn-instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h2 class="title">Why Choose Epimoni</h2>
+          <h5 class="description">Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="ipad-container">
+            <img src="{% static '/img/penelope/IMG_9541.png' %}" />
+          </div>
+        </div>
+        <div class="col-md-4 offset-1">
+          <div class="info info-horizontal">
+            <div class="icon icon-info">
+              <i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Epimoni Swimwear Collection 2022</h4>
+              <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+            </div>
+          </div>
+          <div class="info info-horizontal">
+            <div class="icon icon-success">
+              <i class="fa-solid fa-truck"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Fast Delivery</h4>
+              <p>We value our customers and on purchases £90+ the delivery fee on us</p>
+            </div>
+          </div>
+          <div class="info info-horizontal">
+            <div class="icon icon-danger">
+              <i class="nc-icon nc-tie-bow" aria-hidden="true"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Beautiful Design</h4>
+              <p>Our designs are the best!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="projects-2 section section-dark">
     <div class="container">
       <div class="row">
         <div class="ml-auto mr-auto">
-          <h2 class="section-title text-center">Epiponi Swimwear Collection</h2>
+          <h2 class="title text-center">Epiponi Swimwear Collection</h2>
           <br />
           <div class="row">
             {% for product in products %}
@@ -67,7 +141,7 @@
                       <h4 class="card-title">{{ product.name }}</h4>
                       <p class="card-description">{{ product.description|truncatechars:80 }}</p>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer text-center">
                       <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
                     </div>
                   </div>
@@ -80,30 +154,34 @@
       </div>
     </div>
   </div>
-  <div class="section text-center landing-section">
+  <div class="section landing-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto text-center">
-          <h3 class="title">Contact Me If You Have Any Queries!</h3>
-          <form action="{% url 'contactForm_submit' %}" method="POST" role="form">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="text-center">Contact Me!</h2>
+          <form action="{% url 'contactForm_submit' %}" method="POST" role="form" class="contact-form">
             {% csrf_token %}
             <div class="row">
-              <div class="col-md-12 mt-2">
+              <div class="col-md-6">
+                <label>Name:</label>
                 <input type="text" class="form-control" placeholder="Your Name" name="name" required>
+              </div>
+              <div class="col-md-6">
+                <label>Email:</label>
+                <input type="text" class="form-control" placeholder="Email" name="email" required>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 mt-2">
-                <input type="text" class="form-control" placeholder="Email" name="email" required>
-              </div>
-              <div class="col-md-12 mt-2">
+              <div class="col-md-12">
+                <label>Subject:</label>
                 <input type="text" class="form-control" placeholder="Subject" name="subject" required>
               </div>
             </div>
-            <textarea class="form-control mt-2" placeholder="Message" rows="7" name="message" required></textarea>
+            <label>Message:</label>
+            <textarea class="form-control" placeholder="Message" rows="7" name="message" required></textarea>
             <div class="row">
-              <div class="col-md-6 ml-auto mr-auto mt-3">
-                <button class="btn btn-primary btn-block btn-round">Send me Your Message!</button>
+              <div class="col-md-4 offset-md-4">
+                <button class="btn btn-danger btn-lg btn-fill">Send Message!</button>
               </div>
             </div>
           </form>
