@@ -13,6 +13,7 @@ def index(request):
 
 # function to send the form to back-end
 
+
 def contactForm_submit(request):
     """ send email with contact form """
     if request.method == 'POST':
@@ -29,7 +30,7 @@ def contactForm_submit(request):
     else:
         form = ContactForm()
 
-    template = 'home/index.html'
+    template = '/'
     context = {
         'form': form,
     }
