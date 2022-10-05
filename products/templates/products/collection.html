@@ -2,51 +2,57 @@
 {% load static %}
 
 {% block page_header %}
-<div class="page-header page-header-xs"
-    style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
-    <div class="filter"></div>
+<div class="page-header page-header-xs" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+  <div class="filter"></div>
 </div>
 {% endblock %}
 
-{% block content %} 
+{% block content %}
 <div class="section lates-offers h-100">
   <div class="container container-fluid">
     {% if request.user.is_superuser %}
     <h3 class="section-title mb-5">{{ request.user.username|capfirst }} Click + to add a new Product
-    <a href="{% url 'add_product' %}" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
-    {% else %}
-    <h3 class="section-title mb-5">Epiponi Swimwear Collection
-    {% endif %}
-    </h3>
+      <a href="{% url 'add_product' %}" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
+      {% else %}
+      <h3 class="section-title mb-5">Epiponi Swimwear Collection
+        {% endif %}
+      </h3>
       <div class="row">
-      {% for product in products %}
-          <div class="col-lg-3 col-md-4">
-              <div class="card card-blog">
-                  <div class="card-image">
-                    <a href="{% url 'product_detail' product.id %}">
-                      {% if product.image %}
-                      <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;" src="{{ product.image.url }}" alt="{{ product.name }}">
-                      {% else %}
-                      <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;" src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
-                      {% endif %}
-                    </a>
-                    </div>
-                    <div class="card-body">
-                      <div class="card-description">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-description">{{ product.description|truncatechars:60 }}</p>
-                      </div>
-                      {% if request.user.is_superuser %}
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a class=" btn btn-danger" href="{% url 'delete_product' product.id %}"><i class="fa-solid fa-times"></i></a>
-                      {% else %}
-                      <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
-                      {% endif %}
-                    </div>
+        {% for product in products %}
+        <div class="col-lg-3 col-md-4">
+          <div class="card card-blog">
+            <div class="card-image">
+              <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
+                <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
+                  src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
+                  src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
+                {% endif %}
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="card-description">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-description">{{ product.description|truncatechars:60 }}</p>
               </div>
+              <div class="card-footer text-center">
+                {% if request.user.is_superuser %}
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary"><i
+                    class="fa-solid fa-eye"></i></a>
+                <a href="{% url 'edit_product' product.id %}" class="btn btn-info"><i
+                    class="fa-solid fa-pen-to-square"></i></a>
+                <a class=" btn btn-danger" href="{% url 'delete_product' product.id %}"><i
+                    class="fa-solid fa-times"></i></a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                {% endif %}
+              </div>
+            </div>
           </div>
-      {% endfor %}
+        </div>
+        {% endfor %}
       </div>
   </div>
 </div>

@@ -129,10 +129,10 @@
                 <div class="card-image">
                   <a href="{% url 'product_detail' product.id %}">
                     {% if product.image %}
-                    <img class="img-responsive" style="width: 100%; height: 400px; object-fit: cover;"
+                    <img class="img-responsive"
                       src="{{ product.image.url }}" alt="{{ product.name }}">
                     {% else %}
-                    <img class="img-responsive" style="width: 100%; height: 400px; object-fit: cover;"
+                    <img class="img-responsive"
                       src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
                     {% endif %}
                   </a>
