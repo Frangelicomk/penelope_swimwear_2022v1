@@ -67,7 +67,9 @@
                       <h4 class="card-title">{{ product.name }}</h4>
                       <p class="card-description">{{ product.description|truncatechars:80 }}</p>
                     </div>
-                    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                    <div class="card-footer">
+                      <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                    </div>
                   </div>
                 </div>
               </div>
