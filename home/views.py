@@ -30,3 +30,7 @@ def contactForm_submit(request):
     else:
         form = ContactForm()
         return render(request, 'home/index.html')
+
+
+def error_page_404(request, excemption):
+    return render(request, '404.html')
