@@ -8,12 +8,12 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="main">
+<div class="main product-page">
   <div class="section">
     <div class="container">
       <div class="row title-row">
         <div class="col-md-2">
-          <h4 class="shop">Shop</h4>
+          <h4 class="shop">Product Page:</h4>
         </div>
         <div class="col-md-4 ml-auto">
           <div class="pull-right">
@@ -45,7 +45,7 @@
                     {% if product.image %}
                     <img class="d-block img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                     {% else %}
-                    <img class="d-block img-fluid" src="{{ MEDIA_URL }}no-image-icon-23499.png"
+                    <img class="d-block img-fluid" src="{{ MEDIA_URL }}/no-image-icon-23499.png"
                       alt="{{ product.name }}">
                     {% endif %}
                     <div class="carousel-caption d-none d-md-block">
@@ -74,25 +74,11 @@
           <p>{{ product.description }}</p>
           <span class="label label-default shipping">Free shipping to Europe </span>
           <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+            {% csrf_token %}
             <div class="row">
-              {% csrf_token %}
-              {% with product.has_sizes as s %}
-              <div class="col-md-6 col-sm-6">
-                {% if s %}
-                <label>Select Size</label>
-                <div class="form-group" style="width: 120px;">
-                  <select name="product_size" class="selectpicker"
-                    data-style="btn btn-outline-default btn-block btn-round" data-menu-style="" id='id_product_size'>
-                    <option value="s">SMALL</option>
-                    <option value="m">MEDIUM</option>
-                    <option value="l" selected>LARGE</option>
-                  </select>
-                </div>
-              </div>
-              {% endif %}
               <div class="col-md-6 col-sm-6">
                 <label>Quantity</label>
-                <div class="form-group" style="width: 120px;">
+                <div class="form-group">
                   <div class="input-group input-group-{{ product.id }}">
                     <div class="input-group-prepend">
                       <button class="decrement-qty btn btn-primary btn-just-icon decrement-qty_{{ product.id }}"
@@ -116,25 +102,38 @@
                   </div>
                 </div>
               </div>
+              {% with product.has_sizes as s %}
+              <div class="col-md-6 col-sm-6">
+                {% if s %}
+                <label>Select Size</label>
+                <div class="form-group">
+                  <select name="product_size" class="selectpicker"
+                    data-style="btn btn-outline-default btn-block btn-round" data-menu-style="" id='id_product_size'>
+                    <option value="s">SMALL</option>
+                    <option value="m">MEDIUM</option>
+                    <option value="l" selected>LARGE</option>
+                  </select>
+                </div>
+              </div>
+              {% endif %}
             </div>
             <hr />
             <div class="row">
-              <div class="col p-0 m-1">
+              <div class="col-md-6 col-sm-8 mt-2">
                 <a href="{% url 'products' %}" class="btn btn-info btn-block btn-round">
                   <span class="icon">
                     <i class="fas fa-chevron-left">Collection</i>
                   </span>
-
                 </a>
               </div>
-              <div class="col p-0 m-1">
+              <div class="col-md-6 col-sm-8 mt-2">
                 <input type="submit" class="btn btn-danger btn-block btn-round" value="Add to Bag">
               </div>
               <input type="hidden" name="redirect_url" value="{{ request.path }}">
               {% endwith %}
             </div>
+          </form>
         </div>
-        </form>
       </div>
     </div>
   </div>
