@@ -12,17 +12,22 @@
       <div class="filter"></div>
       <div class="container">
         <div class="row">
-          <h1>{% trans "Sign Out" %}</h1>
-          <p>{% trans 'Are you sure you want to sign out?' %}</p>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h1>{% trans "Sign Out" %}</h1>
+            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="btn btn-danger btn-block btn-round" type="submit">Sign Out</button>
+            </form>
+          <a href="{% url 'home' %}" class="btn btn-neutral btn-block btn-round mt-3">Cancel</a>
         </div>
-        <div class="row">
-          <form method="post" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="btn btn-danger btn-block btn-round" type="submit">Sign Out</button>
-          </form>
         </div>
       </div>
     </div>
