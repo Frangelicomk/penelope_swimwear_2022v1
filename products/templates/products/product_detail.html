@@ -51,7 +51,15 @@
                     <div class="carousel-caption d-none d-md-block">
                       <p>Somewhere</p>
                     </div>
-                </div>
+                  </div>
+                  {% for img in product.extra_imgs %}
+                  <div class="carousel-item">
+                    <img class="d-block img-fluid" src="{{ img.img.url }}" alt="{{ product.name }}">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p>Image 2</p>
+                    </div>
+                  </div>
+                  {% endfor %}
                 </div>
                 <a class="left carousel-control carousel-control-prev" href="#carouselExampleIndicators" role="button"
                   data-slide="prev">

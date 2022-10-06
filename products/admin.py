@@ -1,10 +1,26 @@
 from django.contrib import admin
-from .models import Product, Category, Collection
+from .models import Product, Category, Collection, Extra_Img
 
 # Register your models here.
 
 
+class ImageInline(admin.StackedInline):
+ 
+    fieldsets = (
+        (
+            None,
+            {
+                'fields': ('img',)
+            }
+        ),
+    )
+
+    model = Extra_Img
+    extra = 1
+
+
 class ProductAdmin(admin.ModelAdmin):
+
     list_display = (
         'sku',
         'name',
@@ -14,6 +30,7 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
     )
 
+    inlines = (ImageInline, )
     ordering = ('sku',)
 
 

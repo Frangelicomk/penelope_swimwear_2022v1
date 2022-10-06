@@ -29,6 +29,14 @@ class Collection(models.Model):
         return self.friendly_name
 
 
+class Extra_Img(models.Model):
+    img = models.ImageField(null=True, blank=True)
+    extra_img = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.img.url
+
+
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     collection = models.ForeignKey('Collection', null=True, blank=True, on_delete=models.SET_NULL)
@@ -39,6 +47,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+
 
     def __str__(self):
         return self.name
