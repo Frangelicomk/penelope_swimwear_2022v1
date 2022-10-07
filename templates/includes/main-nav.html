@@ -13,14 +13,23 @@
     </div>
     <div class="collapse navbar-collapse" data-nav-image="" data-color="orange">
       <ul class="navbar-nav ml-auto">
-        {% if request.user.is_superuser %}
-        <li class="nav-item">
-          <a href="{% url 'products' %}" class="nav-link"><span class="link-text">Edit Products</span></a>
+        <li class="dropdown nav-item">
+          {% if request.user.is_superuser %}
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+          Admin</a>
+           <div class="dropdown-menu dropdown-menu-right dropdown-danger">
+            <a href="{% url 'products' %}" class="dropdown-item">
+              Edit Products
+            </a>
+            <a href="{% url 'admin:index' %}" class="dropdown-item">
+              Admin Panel
+            </a>
+            <a href="{% url 'add_product' %}" class="dropdown-item">
+              Add New Product
+            </a>
+           </div>
+            {% endif %}
         </li>
-        <li class="nav-item">
-          <a href="{% url 'admin:index' %}" class="nav-link"><span class="link-text">Admin Panel</span></a>
-        </li>
-        {% endif %}
         <li class="dropdown nav-item">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
            Shop Collection</a>
