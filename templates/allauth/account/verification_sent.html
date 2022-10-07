@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
-{% block inner_content %}
+{% block page_header %}
 {% endblock %}
 {% block content %}
 <div class="login-page full-screen">
   <div class="wrapper">
-    <div class="page-header" style="background-image: url('/media/EC6C1BBF-B061-4C4B-99E3-FE5C3D147BA1.jpeg');">
+    <div class="page-header" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
       <div class="filter"></div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-md-6 col-sm-6 ml-auto mr-auto mx-auto">
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <h1>{% trans "Verify Your E-mail Address" %}</h1>
             <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </div>
