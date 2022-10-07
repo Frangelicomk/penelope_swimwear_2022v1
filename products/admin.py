@@ -5,7 +5,7 @@ from .models import Product, Category, Collection, Extra_Img
 
 
 class ImageInline(admin.StackedInline):
- 
+
     fieldsets = (
         (
             None,

@@ -6,81 +6,98 @@
 {% endblock %}
 
 {% block page_header %}
-<div class="parallax pattern-image filter filter-gradient-5">
-    <div class="page-header page-header-xs"
-        style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+    <div class="page-header page-header-xs" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
         <div class="filter"></div>
     </div>
-    <div class="container">
-        <div class="content">
-            <h1>Welcome to your profile {{ request.user.username|capfirst }}!!</h1>
-            <div class="separator-container">
-                <div class="separator line-separator"></div>
-            </div>
-            <h5>Here you can view your past orders and update your details</h5>
-        </div>
-    </div>
-</div>
 {% endblock %}
 
 {% block content %}
-<div class="profile-content section">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">My Details</h2>
-                <hr>
+<div class="wrapper profile-page">
+    <div class="profile-content section">
+        <div class="container">
+            <div class="row">
+                <div class="profile-picture">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new img-no-padding">
+                            {% if request.user.userprofile.profile_image %}
+                            <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }} profile image">
+                            {% else %}
+                            <img class="img-responsive img-fluid" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ request.user.username }} no image yet">
+                            {% endif %}
+                        </div>
+                        <div class="name">
+                            <h4 class="title text-center">{{ request.user.username|capfirst }}<br /><small>This is your profile</small></h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">Default Delivery Information</p>
-                <form action="{% url 'profile' %}" method="POST" id="profile_update_form" class="mt-3">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn black text-uppercase float-right">Update Information</button>
-                </form>
+            <br />
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Personal Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#following" role="tab">Order History</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">{{ request.user.username|capfirst }}, here you will track your order History</p>
-                <p class="text-muted">Order History</p>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                        {{ order.order_number|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td>{{ order.date }}</td>
-                                <td>
-                                    <ul class="list-unstyled">
-                                        {% for item in order.lineitems.all %}
-                                        <li class="small">
-                                            {% if item.product.has_sizes %}
-                                            Size {{ item.product.size|upper }}
-                                            {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td>£{{ order.grand_total }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="follows" role="tabpanel">
+                    <div class="col-12 col-lg-6">
+                        <p class="text-muted">Default Delivery Information</p>
+                        <form action="{% url 'profile' %}" method="POST" id="profile_update_form" class="mt-3" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn btn black text-uppercase float-right">Update Information</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane text-center" id="following" role="tabpanel">
+                    <div class="col-12 col-lg-6">
+                        <p class="text-muted">{{ request.user.username|capfirst }}, here you will track your order History</p>
+                        <p class="text-muted">Order History</p>
+                        <div class="order-history table-responsive">
+                            <table class="table table-sm table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Order Number</th>
+                                        <th>Date</th>
+                                        <th>Items</th>
+                                        <th>Order Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'order_history' order.order_number %}"
+                                                title="{{ order.order_number }}">
+                                                {{ order.order_number|truncatechars:6 }}
+                                            </a>
+                                        </td>
+                                        <td>{{ order.date }}</td>
+                                        <td>
+                                            <ul class="list-unstyled">
+                                                {% for item in order.lineitems.all %}
+                                                <li class="small">
+                                                    {% if item.product.has_sizes %}
+                                                    Size {{ item.product.size|upper }}
+                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                        <td>£{{ order.grand_total }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
