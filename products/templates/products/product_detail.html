@@ -35,10 +35,13 @@
             <div class="card page-carousel">
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
+                  {% if product.extra_img_set.all %}
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                  {% for img in product.extra_img_set.all %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to=""></li>
+                  {% endfor %}
+                  {% else %}
+                  {% endif %}
                 </ol>
                 <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
@@ -49,18 +52,17 @@
                       alt="{{ product.name }}">
                     {% endif %}
                     <div class="carousel-caption d-none d-md-block">
-                      <p>Somewhere</p>
                     </div>
                   </div>
-                  {% for img in product.extra_imgs %}
+                  {% for img in product.extra_img_set.all %}
                   <div class="carousel-item">
                     <img class="d-block img-fluid" src="{{ img.img.url }}" alt="{{ product.name }}">
                     <div class="carousel-caption d-none d-md-block">
-                      <p>Image 2</p>
                     </div>
                   </div>
                   {% endfor %}
                 </div>
+                {% if product.extra_img_set.all %}
                 <a class="left carousel-control carousel-control-prev" href="#carouselExampleIndicators" role="button"
                   data-slide="prev">
                   <span class="fa fa-angle-left"></span>
@@ -71,6 +73,8 @@
                   <span class="fa fa-angle-right"></span>
                   <span class="sr-only">Next</span>
                 </a>
+                {% else %}
+                {% endif %}
               </div>
             </div>
           </div> <!-- end carousel -->
