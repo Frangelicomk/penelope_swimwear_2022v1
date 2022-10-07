@@ -22,7 +22,7 @@
                             {% if request.user.userprofile.profile_image %}
                             <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }} profile image">
                             {% else %}
-                            <img class="img-responsive img-fluid" src="{{ 'media/placeholder.jpg' }}" alt="{{ request.user.username }} no image yet">
+                            <img class="img-responsive img-fluid" src="{% static 'img/placeholder.jpg' %}" alt="{{ request.user.username }} no image yet">
                             {% endif %}
                         </div>
                         <div class="name">
