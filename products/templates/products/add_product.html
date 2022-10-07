@@ -16,7 +16,6 @@
       <div>
         <form action="{% url 'add_product' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          <div>
             <div class="row">
               <div class="col-md-5 col-sm-5">
                 <h6>Product Image <span class="icon-danger">*</span></h6>
@@ -29,7 +28,7 @@
                     <span class="btn btn-outline-default btn-round btn-file">
                       <span class="fileinput-new">Select  image</span>
                       <span class="fileinput-exists">Change</span>
-                      <input type="file" name="images" accept="images/*" id="id_image" multiple></span>
+                      <input type="file" name="image" accept="image/*" id="id_image" multiple></span>
                     <a href="#" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput">
                       <i class="fa fa-times"></i> Remove
                     </a>
@@ -98,7 +97,6 @@
                 <button class="btn btn-primary btn-block btn-round py-2" type="submit">Add Product</button>
               </div>
             </div>
-          </div>
         </form>
       </div>
     </div>
