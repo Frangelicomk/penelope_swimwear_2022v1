@@ -1,24 +1,25 @@
+import json
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse
 )
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
-from .forms import OrderForm
-from .models import Order, OrderLineItem
+import stripe
 
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
-
-import stripe
-import json
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Caching checkout data in case there is an error and saves the form
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -28,15 +29,19 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-    except Exception as e:
-        print(e)
+    except Exception as error_checkout:
+        print(error_checkout)
         messages.error(request, ('Sorry, your payment cannot be '
                                  'processed right now. Please try '
                                  'again later.'))
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=error_checkout, status=400)
 
 
 def checkout(request):
+    """
+    Checkout process as imported from Stripe documentation and
+    Code-Institute Boutique Ado project
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -73,7 +78,9 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data['items_by_size'].items(
+
+                        ):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,

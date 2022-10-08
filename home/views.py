@@ -14,23 +14,29 @@ def index(request):
 # function to send the form to back-end
 
 
-def contactForm_submit(request):
+def contactform_submit(request):
     """ send email with contact form """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            email_subject = f'New contact {form.cleaned_data["name"]}: {form.cleaned_data["subject"]}'
-            email_message = f'Message: {form.cleaned_data["message"]}, Email: {form.cleaned_data["email"]}'
-            send_mail(email_subject, email_message, settings.CONTACT_EMAIL, settings.ADMIN_EMAILS,)
+            email_subject = f'New contact {form.cleaned_data["name"]}: \
+                 {form.cleaned_data["subject"]}'
+            email_message = f'Message: {form.cleaned_data["message"]}, \
+                 Email: {form.cleaned_data["email"]}'
+            send_mail(email_subject, email_message,
+                      settings.CONTACT_EMAIL, settings.ADMIN_EMAILS,)
             messages.success(request, 'Thank you for your message')
             return redirect(reverse('home'))
         else:
-            messages.error(request, 'Failed to send message. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to send message. \
+                    Please ensure the form is valid.')
     else:
         form = ContactForm()
         return render(request, 'home/index.html')
 
 
 def error_page_404(request, exception):
+    """ render a 404 custom template in the browser """
     return render(request, '404.html')

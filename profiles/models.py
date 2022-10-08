@@ -26,7 +26,8 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
-    profile_image = models.ImageField(default='placeholder.jpg', null=True, blank=True)
+    profile_image = models.ImageField(default='placeholder.jpg',
+                                      null=True, blank=True)
 
     def __str__(self):
         return self.user.username

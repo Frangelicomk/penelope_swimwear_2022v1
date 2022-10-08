@@ -3,7 +3,13 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Order form Stracture
+    """
     class Meta:
+        """
+        Order form fields linked to our Order Model.
+        """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
@@ -12,7 +18,7 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
+        Adds placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
