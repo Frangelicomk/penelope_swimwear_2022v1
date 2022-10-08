@@ -23,7 +23,7 @@ body {
     position: fixed;
     top: 72px;
     right: 15px;
-    z-index: 99999999999;
+    z-index: 1000;
 }
 
 .custom-toast {
@@ -173,3 +173,19 @@ body {
 .contant_box_404 {
     margin-top: -50px;
 }
+/*---------- end of 404 page ----------*/
+
+/*---------- Animation main ----------*/
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+/*---------- End of Animation main ----------*/

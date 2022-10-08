@@ -1,4 +1,8 @@
+{% if 'home' == request.resolver_match.url_name %}
 <footer class="footer footer-white">
+{% else %}
+<footer class="footer footer-black">
+{% endif %}
   <div class="container-fluid">
     <div class="row">
       <nav class="footer-nav">
