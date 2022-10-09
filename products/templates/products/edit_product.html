@@ -13,10 +13,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12">
-                    <hr>
-                    <h2 class="logo-font mb-4">Product Management</h2>
-                    <h5 class="text-muted">Edit a Product</h5>
-                    <hr>
+                    <h3 class="text-muted">Edit a Product</h5>
+                        <hr>
                 </div>
             </div>
             <div class="row">
@@ -27,24 +25,39 @@
                         <div class="row">
                             <div class="col-md-5 col-sm-5">
                                 <h6>Product Image <span class="icon-danger">*</span></h6>
-                                <div class="fileinput fileinput-exists text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail img-no-padding"
-                                        style="max-width: 370px; max-height: 250px;">
-                                        <img src="{% static 'img/image_placeholder.jpg' %}">
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div id="div_id_image" class="form-group fileinput-new thumbnail img-no-padding">
+                                        {% if product.image %}
+                                        <img src="{{product.image.url}}" alt="{{product.name}} image"
+                                            class="thumbnail img-no-padding"
+                                            style="max-width: 370px; max-height: 620px;">
+                                        {% else %}
+                                        <img src="{% static 'img/image_placeholder.jpg' %}"
+                                            style="max-width: 370px; max-height: 250px;"
+                                            class="thubnail fileinput-new ">
+                                        {% endif %}
                                     </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail img-no-padding">
-                                        <img src="{{ product.image.url }}"
-                                            style="width: 100%; height: 400px; object-fit: cover;">
-                                    </div>
+                                    <div class="fileinput fileinput-preview thumbnail img-no-padding"
+                                        style="max-width: 370px; max-height: 620px;"></div>
                                     <div>
                                         <span class="btn btn-outline-default btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
+                                            {% if product.image %}
+                                            <span class="p-0">Change</span>
+                                            {% else %}
                                             <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="image" accept="image/*" id="id_image"></span>
-                                        <a href="#image-remove" class="btn btn-link btn-danger fileinput-exists"
-                                            data-dismiss="fileinput">
-                                            <i class="fa fa-times"></i> Remove
-                                        </a>
+                                            <span class="fileinput-new">Select Image</span>
+                                            {% endif %}
+                                            <input type="file" name="image" accept="image/*" id="id_image"
+                                                class="select form-control clearablefileinput form-control-file">
+                                        </span>
+                                        <a href="javascript:;" class="btn btn-link btn-danger fileinput-exists"
+                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        {% if product.image %}
+                                        <input type="checkbox" name="image-clear" id="image-clear_id"
+                                            data-toggle="switch" data-on="Delete" data-off="Clear?"
+                                            data-off-color="default" data-on-color="danger">
+                                        <span class="toggle"></span>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <h6>Categories <span class="icon-danger">*</span></h6>
@@ -118,4 +131,9 @@
 {% endblock %}
 {% block postloadjs %}
 {% include 'products/includes/quantity_input_script.html' %}
+<script>
+    if ($("[data-toggle='switch']").length != 0) {
+        $("[data-toggle='switch']").bootstrapSwitch();
+    }
+</script>
 {% endblock %}

@@ -20,18 +20,17 @@
               <h3 class="card-title">Welcome</h3>
               <form class="login register-form" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                {{ form|crispy }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <a class="btn btn-link btn-danger text-center"
-                  href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                <a class="btn btn-link btn-danger text-center"
-                  href="{% url 'account_signup' %}">{% trans "Register" %}</a>
-                <a class="btn btn-link btn-danger text-center"
-                  href="{% url 'home' %}">{% trans "Back to site" %}</a>
+                {{ form.login|as_crispy_field }}
+                {{ form.password|as_crispy_field }}
                 <button class="btn btn-danger btn-block btn-round" type="submit">{% trans "Sign In" %}</button>
               </form>
+              <div class="forgot">
+                <a class="btn btn-link btn-danger m-0"
+                  href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <a class="btn btn-link btn-danger m-0"
+                  href="{% url 'account_signup' %}">{% trans "Register" %}</a>
+                <a class="btn btn-link btn-danger text-center d-block m-0" href="{% url 'home' %}">{% trans "Back to site" %}</a>
+              </div>
             </div>
           </div>
         </div>
