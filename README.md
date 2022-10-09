@@ -31,7 +31,7 @@ This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swim
 
     + First Time Visitors
 
-       1. 
+       1. For First time visitors the owner of the collection wished to have a big hero image to attract the viewer.
 
     + Returing Visitors
 
@@ -110,24 +110,8 @@ Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Valida
 + User Stories
 
   + First Time Visitors
-    1. For First time visitors my aim is to help them navigate easily through the website and to understand the my main qualifications 
-
-       - 
-
-    2. The navigation was planned to be easy and approachable by everyone with easy to follow buttons and headers.
-      
-       - 
+    1. For First time visitors the owner of the collection wished to have a big hero image to attract the viewer. 
     
-    3. First time visitors must be able to navigate directly to the relevant qualification and read as also see and track my progress.
-
-       - 
-
-    4. First time visitors need to be able to navigate over my website and find links to my social media related to each qualification.
-
-       - 
-    
-    5. Easy to find contact form and accessible up to date CV and Work
-
        - 
 
   + Returning Visitors 
@@ -280,12 +264,8 @@ When you create and upload your files to your bucket you need to set up the foll
 + Psychological properties of colours text in the README.md was found [here](http://www.colour-affects.co.uk/psychological-properties-of-colours)
 
 ### Media 
-+ Images Created and taken by Michael Kefalas
-+ Logo Crated by Michael Kefalas in [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) and a mock up was created on [Logomakr](https://logomakr.com)
-  + Logo did not work out as intended so I will take a Logo Creation and Branding Course the following months. Added a text for logo instead to reflect the logo at this stage
-+ Two images were downloaded from [Unsplash](https://unsplash.com)
-  + Special thanks to [Sammy Williams](https://unsplash.com/@sammywilliams) for the Hero image
-  + Special thanks to [Hush Naidoo](https://unsplash.com/@hush52) for the Stethiscope image
++ Images were shared to me by the owner Penelope Calenti who owns the collection of swimwear.
++ [CREATIVE-TIM](https://www.creative-tim.com/product/paper-kit-2-pro) for his premium Paper Kit 2 Pro UI KIT which I used to customise my UI and save me some time with CSS and Bootstrap
 ### Acknowledgements 
 + [Adobe](https://www.adobe.com/#) for their tutorials and videos in their youtube channel found [here](https://www.youtube.com/user/AdobeCreativeCloud)
 + Youtubers which i got inspired from :

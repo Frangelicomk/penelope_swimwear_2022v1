@@ -74,7 +74,6 @@ def add_extraimg(request, product_id):
             return redirect(reverse('products'))
 
 
-
 @login_required
 def add_product(request):
     """ Add a product to the store """
