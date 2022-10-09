@@ -114,8 +114,8 @@
                   </div>
                 </div>
               </div>
-              {% with product.has_sizes as s %}
               <div class="col-md-6 col-sm-6">
+              {% with product.has_sizes as s %}
                 {% if s %}
                 <label>Select Size</label>
                 <div class="form-group">
@@ -126,19 +126,19 @@
                     <option value="l" selected>LARGE</option>
                   </select>
                 </div>
+                {% endif %}
               </div>
-              {% endif %}
             </div>
             <hr />
-            <div class="row">
-              <div class="col-md-6 col-sm-8 mt-2">
+            <div class="row row buttons-row justify-content-between">
+              <div class="col-sm-6 mt-3 p-1">
                 <a href="{% url 'products' %}" class="btn btn-info btn-block btn-round">
                   <span class="icon">
                     <i class="fas fa-chevron-left">Collection</i>
                   </span>
                 </a>
               </div>
-              <div class="col-md-6 col-sm-8 mt-2">
+              <div class="col-sm-6 mt-3 p-1">
                 <input type="submit" class="btn btn-danger btn-block btn-round" value="Add to Bag">
               </div>
               <input type="hidden" name="redirect_url" value="{{ request.path }}">
