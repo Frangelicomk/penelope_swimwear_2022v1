@@ -23,7 +23,7 @@
   {% block corecss %}
     <!-- CSS Files -->
     <link href="{% static 'css/paper-kit/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/paper-kit/paper-kit.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/paper-kit/paper-kit.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/base.css' %}" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -118,10 +118,8 @@
   <script src="{% static 'js/plugins/photo_swipe/photoswipe.min.js' %}"></script>
   <script src="{% static 'js/plugins/photo_swipe/photoswipe-ui-default.min.js' %}"></script>
   <script src="{% static 'js/plugins/photo_swipe/init-gallery.js' %}"></script>
-
   <!--  for Jasny fileupload -->
   <script src="{% static 'js/plugins/jasny-bootstrap.min.js' %}"></script>
-
   <script>
         setTimeout(function(){
          $('.loading').css('opacity','0');
