@@ -40,7 +40,7 @@ class Extra_Img(models.Model):
                                   on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.img
+        return self.img.url
 
 
 class Product(models.Model):
