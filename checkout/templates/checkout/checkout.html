@@ -6,19 +6,17 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block page_header %}
-<div class="page-header page-header-xs"
-    style="background-image: url('/static/img/penelope/IMG_8104.jpeg');padding-top: 200px;">
-    <div class="container text-center">
-      <div class="text-area">
-         <div class="title">
-             <h5 class="text-gray">{{ request.user.username|capfirst }}</h5>
-             <h2>Thank you for shopping with us today!</h2>
-         </div>
-      </div>
+<div class="page-header page-header-xs" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+  <div class="filter"></div>
+  <div class="container text-center" style="padding-top: 200px;">
+    <div class="text-area">
+       <div class="title">
+           <h5 class="text-gray">{{ request.user.username|capfirst }}</h5>
+           <h2>Thank you for shopping with us today!</h2>
+       </div>
     </div>
-    <div class="filter"></div>
+  </div>
 </div>
 {% endblock %}
 
@@ -109,10 +107,8 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <div class="submit-button text-right">
-                        <a href="{% url 'view_bag' %}" class="btn btn-primary btn-sm">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
+                        <a href="{% url 'view_bag' %}" class="btn btn-move-left btn-primary btn-sm">
+                                <i class="nc-icon nc-minimal-left"></i>
                             <span>Adjust your Bag</span>
                         </a>
                         <button id="submit-button" class="btn btn btn-info">
