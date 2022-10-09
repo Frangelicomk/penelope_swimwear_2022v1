@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Product
-from .forms import ProductForm
+from .forms import ProductForm, ExtraImgForm
 # Create your views here.
 
 
@@ -35,6 +35,7 @@ def product_detail(request, product_id):
 def edit_product(request, product_id):
     """ Edit a product in the store """
     product = get_object_or_404(Product, pk=product_id)
+    extra_img_form = ExtraImgForm()
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -51,10 +52,27 @@ def edit_product(request, product_id):
     template = 'products/edit_product.html'
     context = {
         'form': form,
+        'extra_img_form': extra_img_form,
         'product': product,
     }
 
     return render(request, template, context)
+
+
+def add_extraimg(request, product_id):
+    """ Adding extra images while editing a product as admin """
+    if request.method == 'POST':
+        form = ExtraImgForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.extra_img = get_object_or_404(Product, pk=product_id)
+            new_form.save()
+            messages.success(request, 'Extra Image Added \
+                 Successfully.')
+            return redirect(reverse('edit_product', args=[product_id]))
+        else:
+            return redirect(reverse('products'))
+
 
 
 @login_required

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, Category, Extra_Img
 
 
 class ProductForm(forms.ModelForm):
@@ -17,3 +17,10 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0 \
                  select form-control'
+
+
+class ExtraImgForm(forms.ModelForm):
+
+    class Meta:
+        model = Extra_Img
+        fields = ('img',)

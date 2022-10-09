@@ -125,9 +125,27 @@
                     </form>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <form method="POST" action="{% url 'add_extraimg' product.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for img in product.extra_img_set.all %}
+                        <div class="fileinput fileinput-new text-center">
+                            <img class="d-block thumbnail" src="{{ img.img.url }}" alt="{{ product.name }}" style="width: 50px; height: 50px; object-fit: cover;">
+                            {{ extra_img_form|crispy }}
+                        </div>
+                        {% endfor %}
+                        <div class="col-md-4 col-sm-4 mt-3 p-1">
+                            <button class="btn btn-primary btn-block btn-round" type="submit">Update
+                                Img</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
 {% block postloadjs %}
 {% include 'products/includes/quantity_input_script.html' %}
