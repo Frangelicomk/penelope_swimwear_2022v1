@@ -9,7 +9,7 @@
 {% block loader %}
 {% endblock %}
 {% block content %}
-<div class="section lates-offers vh-100">
+<div class="section lates-offers">
   <div class="container container-fluid">
     {% if request.user.is_superuser %}
     <h3 class="section-title mb-5">{{ request.user.username|capfirst }} Click + to add a new Product
