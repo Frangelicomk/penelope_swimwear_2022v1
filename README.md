@@ -128,9 +128,16 @@ This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swim
 
 Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of <br>the project to ensure there were no syntax errors in the project. Color Contrast checker Coolors used to check the contrast and also pick the right colour palette for the website. Also for testing I used CLI to check for errors and fixed the issues showed in Problems tab.
 + [JSHint](https://jshint.com/)
+   + Most of JS was already there with the UI KIT I have done only few changes and added a custom JS to animate landing page. No much testing here
 + [W3C Markup Validator](https://validator.w3.org/#validate_by_uri+with_options)
+   + Most of the errors are from the code I didnt write so I left them as they are. I fixed the issues on early stages of testing
 + [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+   + Only 1 error present and the warning come from the CSS I didnt write, it comes from the bootstrap.min.css
 + [Color Contrast Checker](https://color.a11y.com/)
+   + Failed on some color tests but This website is a real life project for a friend and this were her choices for this stage. in the future I might change some
+   colors to meet the requirements of colortesting.
++ [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+   + Checked the site performance, the score wasnt bad, but I couldnt change the accessibilty issue. This comes from zooming in the site and for 1 more issue that I couldnt solve.
 
 
 ### Testing User Stories
@@ -185,7 +192,6 @@ Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Valida
            - All pages designed to be minimal with nice colours and slim navigation bars.
 
   + Frequent Visitors ()
-
          + Should be able to upload an image to their profile and track past orders.
           - This have been achieved now when the user updates their contact details in the their profile they have the option to add a profile image.
          + To be able to reset their password by entering their email address and also receive a confirmation email which will contain a secure
