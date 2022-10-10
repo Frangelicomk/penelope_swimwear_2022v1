@@ -91,7 +91,7 @@ This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swim
 
 ## Upcoming Features 
 
-+ Newsletters with the option to Subscribe/Unsubscribe.
++ Newsletters with the option to Subscribe/Unsubscribe. ( this has been implemented but will require some further review and changes )
 + Comments on images
 + Blog with Fashion News and where [Penelope Calenti](https://www.instagram.com/penelope.calenti.swimwear/) will be appearing next.
 + A Travel Blog to be added on the site with discounts as requested be Founder.
@@ -151,44 +151,76 @@ Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Valida
       - Also the user will receive a confirmation email when checking out to his email address, check out withour providing a valid email address is not possible.
       - The form for secure check out requires validation and for security reasons all fields must be completed.
    5. To be able to adjust their bag
+      - Users are able to adjust the bag accordingly this have been achieved with Javascript which I followed the instructions from Code Institute Boutique Ado
    6. Receive confirmation emails for their order.
+      - Emails are now send to users as a confirmation of their order
    7. If they wish to send a message regarding a product or an order the visitor must be able to do so using an easy contact form located in the landing
    page.
+      - This has been achieved as there is a new contact form nicely designed in the landing page and users can send emails directly to the Founder with any queries,
+      this will be changed to an info mail when the site goes live.
    8. If they wish to create an account this must be an easy sign up process and also to keep their data secure.
+      - This have been achieved by adding a new Sign in and Sign up button, the forms are easy to ready and to be followed and authentication is required. Once the users create
+      and accound they will be redirected to the log in page after confirming their email address. On their account they will be able to see past order history.
    9. First time visitors should be able to subscribe/unsubscribe to newsletter.
+      - There is a subscription button to newsletter, users must confirm again their email address this is to stop spam and also when they receive news letter they have the 
+      option to unsubscribe. This doest work completely as it should be but more about this on the [Known Bugs Sections](##difficulties-encountered-&-bugs)
 
   + Returning Visitors 
     1. Should be able to to have all the perks from First time visitors list plus +
           + Able to quickly log in to their profile
+            - this have been achieved as there is a log in button and also redirects to users profile.
           + Have the option to unsubscribe from newsletter if not happy / this will be also do able from the emails received.
+            - While this is in development users receive news letters but the link generated isnt working as it should have been. In the feature will be added
+            a button in users profile to instantly unsubscribe/subscribe.
           + if they have forgotten their email address to be able to request a password reset email.
+            - This have been achieved using Django Allauth reset password and users are receiving an email with a link to reset their password, in the feature this will
+            be more customised.
           + if they havent got an account yet to be able to register for an account this must be securely done and a confirmation email must be send.
+            - Achieved again by Django Allauth form, there is a nicely designed sign up form which fields are required and user must confirm their email address before
+            they get access to their account. Also due to authentication users can not use already taken emails.
           + Pop up messages to be active so they can see each actions taken while on the site.
+            - Pop up messages work on each pages to inform users about their actions, for example when a user adds a product in the bag then a message pop ups on the top
+            right which notifies user about the bag content. ( This was achieved with the help from Boutique Ado project. )
           + Design to be minimal and attractive to returning visitors and to showcase products to attract the eye.
+           - All pages designed to be minimal with nice colours and slim navigation bars.
 
   + Frequent Visitors ()
 
-    + Should be able to upload an image to their profile and track past orders.
+         + Should be able to upload an image to their profile and track past orders.
+          - This have been achieved now when the user updates their contact details in the their profile they have the option to add a profile image.
          + To be able to reset their password by entering their email address and also receive a confirmation email which will contain a secure
          link to reset password HTML and then redirecting them straight to log in page.
+          - This have been achieved using Django Allauth reset password and users are receiving an email with a link to reset their password, in the feature this will
+            be more customised.
          + In the feature will be added a blog and comments for each product so registered visitors should be able to see comments, add comments and also delete their comments.
+          - This will be an upcoming feature.
 
   + Manager, Admin and Staff
          + Should have a superuser account so they can be able to access admin site
+          - Currently there is only one superuser account which can create multiple user account from the admin panel and give the permissions required.
          + Staff should be able to review only orders ( This will be sorted later on when the owner decided each staff access to the admin and to the website )
+          - Superuser can adjust this from the admin panel
          + Admins should be able to log in and do changes to orders and also to be able to update user accounts.
+          - Can be done from the admin panel if authority given by the superuser.
          + Currently only the Manager ( Founder ) will be able to add products, edit products and Delete Products. ( This will be reviewed again when the site goes live. )
+          - This achieved only superusers have access to navigation links to add edit and delete products.
          + Manager and admin should be able to change or add images to the products and also update their profiles.
+          - This have been achieved as they have custom made profile. In the feature managers will be able to have more tab in their profile so they can check subscribers
+          send emails and also post blog posts and comments.
          + Manager to receive emails from the contact form and also be able to review subscribers from the admin panel ( This will be added into HTML in the feature )
+          - This have been achieved and the email address is working, the registered email address now receives all emails from the contact form
 
 
 + Tested by friends from facebook and colleagues in differnt divices
 
-  + 
+  + As I did not have many time to create a type form again as I have done in the past so I can gather more feed back for testing and overall functionality. Friends and Colleagues tested all the buttons and links, repsonsiveness have been tested in laptops 13 and 17 inch screens. Computers with 17, 24, 27, 32 and 40 inch screens. and in noumerous off mobile devices. There is an unknown bug when you open the site with Mi navigation pages which HTML content dont load as they should be. I do not know what causing this glitch. Same phone with Chrome open works fine.
 
 + Feedback
   
-  + 
+  + The site got some nice feed back for the features and the upcoming features. I was not able to fix edit product page as I wanted as I do not personally like adding extra images for the products
+  as it is now but I couldnt fix it. Also in the future I will add the option for the super user to be able to delete selected extra images, I didnt have the time to think about how this can be 
+  achieved
+  + The site over works fine, I am not happy how the newsletter turned up as the functionality doesnt work as I wanted. I will do more research about this.
 
 ### Further Testing
 + The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge, Opera and Safari browsers.
@@ -197,13 +229,29 @@ Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Valida
 + Friends, Colleagues from work and family members were asked to review the site and documentation <br>to point out any bugs and/or user experience issues.
 + I personally have access in 27" 4K Monitor, a 17" Laptop, Android phone which I constatly used for testing.
 + I have used Chrome Developer Tools as Opera Dev Tools to constantly check the website responsivness.
-+ As I dont want more images on the markdown please find the testing screenshots on the testing folder. This can be achieved if you navigate on my github page then go to [penelope_swimwear_2022v1](https://github.com/Frangelicomk/penelope_swimwear_2022v1) project there you will find a folder named assets
-if you click on there you will see a subfolder testing. If you right click on that folder you will see the images I have uploaded.
-Alternatively you can click [here]() to see the folder on my github straight away.
++ As I dont want more images on the markdown please find the testing screenshots on the testing folder. This can be achieved if you navigate on my github page then go to [penelope_swimwear_2022v1](https://github.com/Frangelicomk/penelope_swimwear_2022v1) project there you will find a folder named static
+if you click on there you will see img then  a subfolder testing. If you right click on that folder you will see the images I have uploaded.
+Alternatively you can click [here](https://github.com/Frangelicomk/penelope_swimwear_2022v1/tree/main/static/img/testing) to see the folder on my github straight away.
 
 ### Difficulties Encountered & Bugs
 
++ This will be a big section it seems. While when you are subscribing onto the email you receive an email to confirm emai this doesnt works as I wanted the generated email doesnt work.
+  I tried to fix this but it gets worst every time i touch it, so I will try later again. If you confirm user from the admin panen subscribers then admins can send an email to all subscribers without any issue but again the link to unsubsribe doesnt work either.
 
++ An other bug was that I couldnt add extra images the way I wanted and every time i clicked add image this was creating instances with no images if it was left blank. Likely a Daisy Mentor from Slack helped me solve this issue. I changed the model field from Null=True to false so now you can not submit the form without adding an image. I know it doesnt look preaty as interface now that I added this feature but I will change it in the future. My plan was to create instances ( I believe with JS ) for every image I upload to create thubnails on the right side of the main image.
+I wanted to write a code that for each image > 1 then that images will be automatically added as thubnails and extra images. Also when extra images are created I couldnt get the ID from those.
+I think this sounds overall too complicated but I want to learn how to code what I have in my head the easy way.
+
++ I had a big issue when trying to update an product with no image as the default was not loading. That was very frustrating as the app kept crushing. Slack community helped me to fix this issue by migrating correctly changes in heroku directly.
+
++ I found it difficult to add staff members, I was thinking to create an app to add staff members with details and the 3 higher ranking to be displayed in the landing page ( team section )
+this task was impossible so I gave up and did commit to git hub. I tested it on Vscode. ( When I tried to clone my project locally the vars werent working and I didnt know how to fix this. )
+
++ The most difficult part was to add extra images and for each extra image to create a carousel entry for the product details. It took me more than 2 days to set this up but I managed to solve it on my own using dev tools and inspecting admin, then I created the form on my own using the inspected attributes which fixed the issue.
+
++ There was a bug mentioned before if you open the app on Mi navigation the app doesnt load correctly Which still I dont know why. probably due to drivers.
+
++ I have done a lot of changes and While I Havent encountered many bugs the ones that I encountered took me long time to solve. Sounds easier that it was.
 
 ## Deployment to Github
 
