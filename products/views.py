@@ -62,7 +62,7 @@ def edit_product(request, product_id):
 def add_extraimg(request, product_id):
     """ Adding extra images while editing a product as admin """
     if request.method == 'POST':
-        form = ExtraImgForm(request.POST, request.FILES)
+        form = ExtraImgForm(request.POST, request.FILES or None)
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.extra_img = get_object_or_404(Product, pk=product_id)
@@ -71,7 +71,9 @@ def add_extraimg(request, product_id):
                  Successfully.')
             return redirect(reverse('edit_product', args=[product_id]))
         else:
-            return redirect(reverse('products'))
+            form = ExtraImgForm()
+
+    return redirect(reverse('products', args=[product_id]))
 
 
 @login_required
@@ -80,7 +82,6 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():

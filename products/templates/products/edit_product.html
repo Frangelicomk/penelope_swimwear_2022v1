@@ -3,7 +3,7 @@
 {% block loader %}
 {% endblock %}
 {% block page_header %}
-<div class="page-header page-header-xs" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
+<div class="page-header page-header-xs" style="background-image: url('{% static 'img/penelope/IMG_8104.jpeg' %}');">
     <div class="filter"></div>
 </div>
 {% endblock %}
@@ -31,15 +31,24 @@
                                         <img src="{{product.image.url}}" alt="{{product.name}} image"
                                             class="thumbnail img-no-padding"
                                             style="max-width: 370px; max-height: 620px;">
-                                        {% else %}
-                                        <img src="{% static 'img/image_placeholder.jpg' %}"
+                                            {% else %}
+                                            <img src="{% static 'img/image_placeholder.jpg' %}"
                                             style="max-width: 370px; max-height: 250px;"
                                             class="thubnail fileinput-new ">
-                                        {% endif %}
-                                    </div>
-                                    <div class="fileinput fileinput-preview thumbnail img-no-padding"
+                                            {% endif %}
+                                        </div>
+                                        <span class="row col-10 m-auto p-0">
+                                        {% for extra_img in product.extra_img_set.all %}
+                                        <span class="p-0 mr-1 img-no-padding">
+                                                <img class="thumbnail" src="{{ extra_img.img.url }}"
+                                                    alt="{{ product.name }}"
+                                                    style="width: 60px; height: 60px; object-fit: cover;">
+                                        </span>
+                                        {% endfor %}
+                                        </span>
+                                        <div class="fileinput fileinput-preview thumbnail img-no-padding"
                                         style="max-width: 370px; max-height: 620px;"></div>
-                                    <div>
+                                        <div>
                                         <span class="btn btn-outline-default btn-round btn-file">
                                             {% if product.image %}
                                             <span class="p-0">Change</span>
@@ -127,17 +136,17 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-12">
-                    <form method="POST" action="{% url 'add_extraimg' product.id %}" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'add_extraimg' product.id %}" enctype="multipart/form-data"
+                        validate>
                         {% csrf_token %}
-                        {% for img in product.extra_img_set.all %}
-                        <div class="fileinput fileinput-new text-center">
-                            <img class="d-block thumbnail" src="{{ img.img.url }}" alt="{{ product.name }}" style="width: 50px; height: 50px; object-fit: cover;">
+                        <div class="add-row">
                             {{ extra_img_form|crispy }}
                         </div>
-                        {% endfor %}
-                        <div class="col-md-4 col-sm-4 mt-3 p-1">
-                            <button class="btn btn-primary btn-block btn-round" type="submit">Update
-                                Img</button>
+                        <div class="row buttons-row">
+                            <div class="col-md-4 col-sm-4 mt-3 p-1">
+                                <button class="btn btn-primary btn-block btn-round" type="submit">Extra
+                                    Image</button>
+                            </div>
                         </div>
                     </form>
                 </div>

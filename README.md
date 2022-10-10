@@ -32,33 +32,57 @@ This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swim
     + First Time Visitors
 
        1. For First time visitors the owner of the collection wished to have a big hero image to attract the viewer.
+       2. Landing page to be minimal with few buttons and easy navigation.
+       3. First time visitors to be able to view quickly the products see prices and images for each product.
+       4. To be able to securely and quickly check out.
+       5. To be able to adjust their bag
+       6. Receive confirmation emails for their order.
+       7. If they wish to send a message regarding a product or an order the visitor must be able to do so using an easy contact form located in the landing
+       page.
+       8. If they wish to create an account this must be an easy sign up process and also to keep their data secure.
+       9. First time visitors should be able to subscribe/unsubscribe to newsletter.
 
     + Returing Visitors
 
-       1. 
+       1. Should be able to to have all the perks from First time visitors list plus +
+          + Able to quickly log in to their profile
+          + Have the option to unsubscribe from newsletter if not happy / this will be also do able from the emails received.
+          + if they have forgotten their email address to be able to request a password reset email.
+          + if they havent got an account yet to be able to register for an account this must be securely done and a confirmation email must be send.
+          + Pop up messages to be active so they can see each actions taken while on the site.
+          + Design to be minimal and attractive to returning visitors and to showcase products to attract the eye.
 
     + Frequent Visitors (such as Recruiters/employers/collaborators)
+         + Should be able to upload an image to their profile and track past orders.
+         + To be able to reset their password by entering their email address and also receive a confirmation email which will contain a secure
+         link to reset password HTML and then redirecting them straight to log in page.
+         + In the feature will be added a blog and comments for each product so registered visitors should be able to see comments, add comments and also delete their comments.
+   
+    + Manager, Admin and Staff
+         + Should have a superuser account so they can be able to access admin site
+         + Staff should be able to review only orders ( This will be sorted later on when the owner decided each staff access to the admin and to the website )
+         + Admins should be able to log in and do changes to orders and also to be able to update user accounts.
+         + Currently only the Manager ( Founder ) will be able to add products, edit products and Delete Products. ( This will be reviewed again when the site goes live. )
+         + Manager and admin should be able to change or add images to the products and also update their profiles.
+         + Manager to receive emails from the contact form and also be able to review subscribers from the admin panel ( This will be added into HTML in the feature )
+            - The admin should be able to upload and send a file as a formatted email.
+            - The admin should access a dashboard to view subscribers and sent emails.
 
-       1. 
 
 
 + ### Design
 
   + Colour Scheme
 
-     + 
-
-  + Typography 
-
-     + 
+     + [CREATIVE-TIM](https://www.creative-tim.com/product/paper-kit-2-pro) for his premium Paper Kit 2 Pro UI KIT which I used to customise my UI and save me some time with CSS and Bootstrap
   
   + Imagery 
      
-     + 
+     + All images are owned be [Penelope Calenti](https://www.instagram.com/penelope.calenti.swimwear/)
 
 + ### Wireframes
   
-   + 
+   + Wireframes were done by [Penelope Calenti](https://www.instagram.com/penelope.calenti.swimwear/) which I currently do not have as I have deleted the folder accidently from my computer
 
 ## Features
 
@@ -67,7 +91,10 @@ This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swim
 
 ## Upcoming Features 
 
-+ 
++ Newsletters with the option to Subscribe/Unsubscribe.
++ Comments on images
++ Blog with Fashion News and where [Penelope Calenti](https://www.instagram.com/penelope.calenti.swimwear/) will be appearing next.
++ A Travel Blog to be added on the site with discounts as requested be Founder.
 
 
 ## Technologies Used 
@@ -110,44 +137,49 @@ Jshint used to validate Javascript , The W3C Markup Validator and W3C CSS Valida
 + User Stories
 
   + First Time Visitors
-    1. For First time visitors the owner of the collection wished to have a big hero image to attract the viewer. 
-    
-       - 
+
+   1. For First time visitors the owner of the collection wished to have a big hero image to attract the viewer.
+      - This have been achieved by the hero image on the landing page which is nicely responsive on every device.
+        Also it showcases straight away that the site is about fashion/summer and clothing in general.
+   2. Landing page to be minimal with few buttons and easy navigation.
+      - Landin page is minimal with a nice animated navigation bar which translates into side navigation bar on small devices making access much easier
+        for the users.
+   3. First time visitors to be able to view quickly the products see prices and images for each product.
+      - This have been achieved as the visitor can have a glance of the products on the landing page rather than navigating into collections
+   4. To be able to securely and quickly check out.
+      - This have been achieved using stripe documentation and the visitor is able to check out without loging in. Stripe takes protection to an other level.
+      - Also the user will receive a confirmation email when checking out to his email address, check out withour providing a valid email address is not possible.
+      - The form for secure check out requires validation and for security reasons all fields must be completed.
+   5. To be able to adjust their bag
+   6. Receive confirmation emails for their order.
+   7. If they wish to send a message regarding a product or an order the visitor must be able to do so using an easy contact form located in the landing
+   page.
+   8. If they wish to create an account this must be an easy sign up process and also to keep their data secure.
+   9. First time visitors should be able to subscribe/unsubscribe to newsletter.
 
   + Returning Visitors 
-    1. For Returning visitors there will be an up to date Blog so the can read the news and what I am up to each period.
-       
-       - 
-    
-    2. For Returning visitors an up to date CV and work history section must be accessible easily, from the main landing page.
-
-       - 
-    
-    3. Returning visitors might want to susbscribe to a newsletter which i plan to add in the future. 
-
-       - 
-    
-    4. Returning visitors will require fast access to my social media through the contact form or through the relevant articles
-
-       - 
+    1. Should be able to to have all the perks from First time visitors list plus +
+          + Able to quickly log in to their profile
+          + Have the option to unsubscribe from newsletter if not happy / this will be also do able from the emails received.
+          + if they have forgotten their email address to be able to request a password reset email.
+          + if they havent got an account yet to be able to register for an account this must be securely done and a confirmation email must be send.
+          + Pop up messages to be active so they can see each actions taken while on the site.
+          + Design to be minimal and attractive to returning visitors and to showcase products to attract the eye.
 
   + Frequent Visitors ()
 
-    1. Frequent visitors recruiters etc will have access through my Blog updates and they will be able to see newest work 
+    + Should be able to upload an image to their profile and track past orders.
+         + To be able to reset their password by entering their email address and also receive a confirmation email which will contain a secure
+         link to reset password HTML and then redirecting them straight to log in page.
+         + In the feature will be added a blog and comments for each product so registered visitors should be able to see comments, add comments and also delete their comments.
 
-       - 
-    
-    2. Frequent users might want to subscirbe to receive emails when new updates launch,something I plan to add in the future.
-    
-       - 
-
-    3. Frequent users must have access to my nursing CV if that is the case and see an updated CV and Work history.
-       
-       - 
-    
-    4. Frequent users who like to hire me as a Full-Stack Developer must have access on my social links and able to sent me message for availability.
-       
-       - 
+  + Manager, Admin and Staff
+         + Should have a superuser account so they can be able to access admin site
+         + Staff should be able to review only orders ( This will be sorted later on when the owner decided each staff access to the admin and to the website )
+         + Admins should be able to log in and do changes to orders and also to be able to update user accounts.
+         + Currently only the Manager ( Founder ) will be able to add products, edit products and Delete Products. ( This will be reviewed again when the site goes live. )
+         + Manager and admin should be able to change or add images to the products and also update their profiles.
+         + Manager to receive emails from the contact form and also be able to review subscribers from the admin panel ( This will be added into HTML in the feature )
 
 
 + Tested by friends from facebook and colleagues in differnt divices

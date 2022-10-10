@@ -118,6 +118,8 @@
         <div class="ml-auto mr-auto">
           <h2 class="title text-center">Epimoni Swimwear Collection</h2>
           <br />
+        </div>
+      </div>
           <div class="row mx-1">
             {% for product in products %}
             <div class="col-lg-3 col-md-6 reveal">
@@ -148,8 +150,6 @@
             </div>
             {% endfor %}
           </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="section landing-section reveal">
@@ -191,15 +191,18 @@
 <div class="subscribe-line subscribe-line-black">
   <div class="container">
     <div class="row">
-      <div class="col-md-9 col-sm-8">
-        <form class="">
-          <div class="form-group">
-            <input type="text" value="" class="form-control" placeholder="Enter your email...">
-          </div>
-        </form>
+      <div class="col-12">
+      <form action="{% url 'new_subscriber' %}" method="POST" novalidate>
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-lg-9 col-md-8 col-sm-6 form-group">
+          <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email...">
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 form-group">
+          <button type="submit" class="btn btn-neutral btn-lg">Join Newsletter</button>
+        </div>
       </div>
-      <div class="col-md-3 col-sm-4">
-        <button type="button" class="btn btn-neutral btn-block btn-lg">Join Newsletter</button>
+        </form>
       </div>
     </div>
   </div>

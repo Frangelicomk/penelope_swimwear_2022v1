@@ -23,4 +23,4 @@ class ExtraImgForm(forms.ModelForm):
 
     class Meta:
         model = Extra_Img
-        fields = ('img',)
+        fields = ('img', 'id',)

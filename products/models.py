@@ -35,12 +35,13 @@ class Collection(models.Model):
 
 class Extra_Img(models.Model):
     """ Our Model for Extra images """
-    img = models.ImageField(null=True, blank=True)
+    img = models.ImageField(default=False, null=False, blank=False)
     extra_img = models.ForeignKey('Product', null=True, blank=True,
                                   on_delete=models.CASCADE)
 
     def __str__(self):
         return self.img.url
+        
 
 
 class Product(models.Model):

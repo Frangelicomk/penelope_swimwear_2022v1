@@ -6,17 +6,15 @@ from .models import Product, Category, Collection, Extra_Img
 
 class ImageInline(admin.StackedInline):
 
-    fieldsets = (
-        (
-            None,
-            {
-                'fields': ('img',)
-            }
-        ),
-    )
+    list_display = [
+        'img',
+        'id',
+
+    ]
 
     model = Extra_Img
-    extra = 1
+    readonly_fields = ('id',)
+    extra = 0
 
 
 class ProductAdmin(admin.ModelAdmin):
