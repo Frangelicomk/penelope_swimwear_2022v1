@@ -1,6 +1,6 @@
 <h1 align="center">Penelope Calenti Swimwear Collection 2022</h1>
 
-[Penelope Calenti Swimwear Collection 2022]( https://penelope-c-epimoni.herokuapp.com/)
+[Penelope Calenti Swimwear Collection 2022]( https://penelope-swimwear-2022v1.onrender.com/)
 
 This is my final project MS4 for Code Institute. Featuring Penelope Calenti Swimwear Collection a real life project requested by a friend.
 
