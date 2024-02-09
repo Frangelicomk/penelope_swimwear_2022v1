@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dj_database_url
 from dotenv import load_dotenv
+# we need to import and inititiate environ
+import environ
+
+# Init environ variables
+env = environ.Env()
+environ.Env.read_env()
 
 load_dotenv()  # Load environment variables from .env
 
@@ -132,6 +138,10 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'USER': env('DATABASE_USER'),
+            'PASSWORD': env('DATABASE_PASS'),
+            'HOST': env('DATABASE_HOST'),
+            'PORT': env('DATABASE_PORT')
         }
     }
 
