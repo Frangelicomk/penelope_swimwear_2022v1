@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+from django.db import IntegrityError
 from .models import Subscriber
 from .forms import SubscriberForm
 
@@ -27,26 +28,26 @@ def new_subscriber(request):
     if request.method == "POST":
         email = request.POST.get('email')
         confirmation_number = random_digits()
-        Subscriber.objects.create(
-            email=email, confirmation_number=confirmation_number)
+
+        try:
+            # Attempt to create a new subscriber
+            Subscriber.objects.create(email=email, confirmation_number=confirmation_number)
+        except IntegrityError:
+            # Handle duplicate email address
+            messages.warning(request, f'You are already subscribed with email: {email}')
+            return render(request, 'home/index.html', {'form': SubscriberForm()})
+
+        # Send confirmation email
         email_subject = 'Newsletter Confirmation'
         email_message = (
-            'Thank you for signing up for my email newsletter! Please complete \
-                 the process by \
-                    <a href="{}/confirm_subscriber/?email={}&confirmation_number={}"> \
-                        clicking here to confirm your registration.'.format(
-                            request.build_absolute_uri(
-                                '/confirm_subscriber/'), email, confirmation_number))
-        send_mail(
-            email_subject,
-            email_message,
-            settings.CONTACT_EMAIL,
-            [email, ]
-            )
-        messages.success(
-            request, f'A confirmation email has been send to {email}')
-        return render(request, 'home/index.html', {
-            'email': email, 'action': 'added', 'form': SubscriberForm()})
+            f'Thank you for signing up for my email newsletter! Please complete the process by '
+            f'<a href="{request.build_absolute_uri("/confirm_subscriber/")}?email={email}&confirmation_number={confirmation_number}">'
+            f'clicking here to confirm your registration.</a>'
+        )
+        send_mail(email_subject, email_message, settings.CONTACT_EMAIL, [email])
+
+        messages.success(request, f'A confirmation email has been sent to {email}')
+        return render(request, 'home/index.html', {'email': email, 'action': 'added', 'form': SubscriberForm()})
     else:
         return render(request, 'home/index.html', {'form': SubscriberForm()})
 
