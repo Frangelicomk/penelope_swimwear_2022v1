@@ -44,7 +44,7 @@ def new_subscriber(request):
             [email, ]
             )
         messages.success(
-            request, f'A confirmation emai has been send to {email}')
+            request, f'A confirmation email has been send to {email}')
         return render(request, 'home/index.html', {
             'email': email, 'action': 'added', 'form': SubscriberForm()})
     else:
