@@ -1,221 +1,300 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
-<div class="page-header" data-parallax="true" style="background-image: url({% static 'img/penelope/IMG_8104.jpeg' %})">
-  <div class="filter"></div>
-  <div class="content-center">
-    <div class="container">
-      <div class="motto">
-        <h1 class="title">Epimoni Collection</h1>
-        <h3 class="description">By Penelope Calenti</h3>
-        <br />
-        <a href="{% url 'products' %}" class="btn btn-neutral btn-round"><i class="fa fa-bag-shopping"></i>Shop
-          Collection</a>
-      </div>
-    </div>
-  </div>
+{% extends "base.html" %} {% load static %} {% block page_header %}
+<div
+	class="page-header"
+	data-parallax="true"
+	style="background-image: url({%static 'img/penelope/IMG_8104.jpeg'%})"
+>
+	<div class="filter"></div>
+	<div class="content-center">
+		<div class="container">
+			<div class="motto">
+				<h1 class="title">Epimoni Collection</h1>
+				<h3 class="description">By Penelope Calenti</h3>
+				<br />
+				<a href="{% url 'products' %}" class="btn btn-neutral btn-round"
+					><i class="fa fa-bag-shopping"></i>Shop Collection</a
+				>
+			</div>
+		</div>
+	</div>
 </div>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="wrapper">
-  <div class="section text-center landing-section">
-    <div class="container">
-      <div class="row align-items-center justify-center reveal">
-        <div class="col-md-5">
-          <h2 class="title">Epimoní</h2>
-          <h5>The Story Behind Epimoní</h5>
-          <div class="separator-container">
-            <div class="separator line-separator">✻</div>
-          </div>
-        </div>
-        <div class="col-md-7">
-          <p>Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι μαγικό…
-          </p>
-          <p>Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear Collection έγινε πραγματικότητα</p>
-          <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section section-dark text-center landing-section">
-    <div class="container reveal">
-      <h2 class="title">Epimoni, Meet The Team</h2>
-      <div class="row">
-        <div class="col-md-4 ml-auto mr-auto my-4">
-          <div class="card card-profile card-plain">
-            <div class="card-avatar">
-              <img src="{% static 'img/penelope/penelope1.jpg' %}" alt="founder profile image">
-            </div>
-            <div class="card-body">
-              <a href="https://www.instagram.com/penelope.calenti.swimwear/" target="_blank">
-                <div class="author">
-                  <h4 class="card-title">Penelope Calenti</h4>
-                  <h6 class="card-category text-muted">Founder</h6>
-                </div>
-              </a>
-              <p class="card-description text-center">
-                Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε ένα καλοκαίρι
-                μαγικό…
-              </p>
-            </div>
-            <div class="card-footer text-center">
-              <a href="https://www.instagram.com/penelope.calenti.swimwear/"
-                class="btn btn-just-icon btn-border btn-instagram" target="_blank"><i class="fa fa-instagram"
-                  aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section features-4 reveal">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto text-center">
-          <h2 class="title">Why Choose Epimoni</h2>
-          <h5 class="description">Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την σανίδα τους σε
-            ένα καλοκαίρι μαγικό…</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="ipad-container">
-            <img src="{% static 'img/penelope/IMG_9541.png' %}" alt="logo for the site.P.C " />
-          </div>
-        </div>
-        <div class="col-md-4 offset-1">
-          <div class="info info-horizontal">
-            <div class="icon icon-info">
-              <i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
-            </div>
-            <div class="description">
-              <h4 class="info-title">Epimoni Swimwear Collection 2022</h4>
-              <p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
-            </div>
-          </div>
-          <div class="info info-horizontal">
-            <div class="icon icon-success">
-              <i class="fa-solid fa-truck"></i>
-            </div>
-            <div class="description">
-              <h4 class="info-title">Fast Delivery</h4>
-              <p>We value our customers and on purchases £90+ the delivery fee on us</p>
-            </div>
-          </div>
-          <div class="info info-horizontal">
-            <div class="icon icon-danger">
-              <i class="nc-icon nc-tie-bow" aria-hidden="true"></i>
-            </div>
-            <div class="description">
-              <h4 class="info-title">Beautiful Design</h4>
-              <p>Our designs are the best!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="projects-2 section section-dark reveal">
-    <div class="container">
-      <div class="row">
-        <div class="ml-auto mr-auto">
-          <h2 class="title text-center">Epimoni Swimwear Collection</h2>
-        </div>
-      </div>
-      <div class="row mx-1">
-        {% for product in products %}
-        <div class="col-lg-3 col-md-4">
-          <div class="card card-blog">
-            <div class="card-image">
-              {% if product.image %}
-              <a href="{% url 'product_detail' product.id %}">
-                <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
-                  src="{{ product.image.url }}" alt="{{ product.name }}">
-              </a>
-              {% else %}
-              <a href="{% url 'product_detail' product.id %}">
-                <img class="img-responsive img-fluid" style="width: 100%; height: 400px; object-fit: cover;"
-                  src="{{ MEDIA_URL }}no-image-icon-23499.png" alt="{{ product.name }}">
-              </a>
-              {% endif %}
-            </div>
-            <div class="card-body">
-              <div class="card-description">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-description">{{ product.description|truncatechars:60 }}</p>
-              </div>
-              <div class="card-footer text-center">
-                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="section landing-section reveal">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <h2 class="text-center">Contact Me!</h2>
-          <form action="{% url 'contactForm_submit' %}" method="POST" role="form" class="contact-form">
-            {% csrf_token %}
-            <div class="row">
-              <div class="col-md-6">
-                <label>Name:</label>
-                <input type="text" class="form-control" placeholder="Your Name" name="name" required>
-              </div>
-              <div class="col-md-6">
-                <label>Email:</label>
-                <input type="text" class="form-control" placeholder="Email" name="email" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <label>Subject:</label>
-                <input type="text" class="form-control" placeholder="Subject" name="subject" required>
-              </div>
-            </div>
-            <label>Message:</label>
-            <textarea class="form-control" placeholder="Message" rows="7" name="message" required></textarea>
-            <div class="row">
-              <div class="col-md-4 offset-md-4">
-                <button class="btn btn-danger btn-lg btn-fill">Send Message!</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="section text-center landing-section">
+		<div class="container">
+			<div class="row align-items-center justify-center reveal">
+				<div class="col-md-5">
+					<h2 class="title">Epimoní</h2>
+					<h5>The Story Behind Epimoní</h5>
+					<div class="separator-container">
+						<div class="separator line-separator">✻</div>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<p>
+						Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την
+						σανίδα τους σε ένα καλοκαίρι μαγικό…
+					</p>
+					<p>
+						Μετά από δυο χρόνια, το δικό μου όνειρο,η Penelope Calenti Swimwear
+						Collection έγινε πραγματικότητα
+					</p>
+					<p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section section-dark text-center landing-section">
+		<div class="container reveal">
+			<h2 class="title">Epimoni, Meet The Team</h2>
+			<div class="row">
+				<div class="col-md-4 ml-auto mr-auto my-4">
+					<div class="card card-profile card-plain">
+						<div class="card-avatar">
+							<img
+								src="{% static 'img/penelope/penelope1.jpg' %}"
+								alt="founder profile image"
+							/>
+						</div>
+						<div class="card-body">
+							<a
+								href="https://www.instagram.com/penelope.calenti.swimwear/"
+								target="_blank"
+							>
+								<div class="author">
+									<h4 class="card-title">Penelope Calenti</h4>
+									<h6 class="card-category text-muted">Founder</h6>
+								</div>
+							</a>
+							<p class="card-description text-center">
+								Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με
+								την σανίδα τους σε ένα καλοκαίρι μαγικό…
+							</p>
+						</div>
+						<div class="card-footer text-center">
+							<a
+								href="https://www.instagram.com/penelope.calenti.swimwear/"
+								class="btn btn-just-icon btn-border btn-instagram"
+								target="_blank"
+								><i class="fa fa-instagram" aria-hidden="true"></i
+							></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section features-4 reveal">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 ml-auto mr-auto text-center">
+					<h2 class="title">Why Choose Epimoni</h2>
+					<h5 class="description">
+						Εμείς τα όνειρα μας τα φοράμε τα κάνουμε μαγιό και σερφάρουμε με την
+						σανίδα τους σε ένα καλοκαίρι μαγικό…
+					</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="ipad-container">
+						<img
+							src="{% static 'img/penelope/IMG_9541.png' %}"
+							alt="logo for the site.P.C "
+						/>
+					</div>
+				</div>
+				<div class="col-md-4 offset-1">
+					<div class="info info-horizontal">
+						<div class="icon icon-info">
+							<i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
+						</div>
+						<div class="description">
+							<h4 class="info-title">Epimoni Swimwear Collection 2022</h4>
+							<p>Ας ονειρευτούμε μαζί λοιπόν στα καλοκαίρια που έρχονται ☀️</p>
+						</div>
+					</div>
+					<div class="info info-horizontal">
+						<div class="icon icon-success">
+							<i class="fa-solid fa-truck"></i>
+						</div>
+						<div class="description">
+							<h4 class="info-title">Fast Delivery</h4>
+							<p>
+								We value our customers and on purchases £90+ the delivery fee on
+								us
+							</p>
+						</div>
+					</div>
+					<div class="info info-horizontal">
+						<div class="icon icon-danger">
+							<i class="nc-icon nc-tie-bow" aria-hidden="true"></i>
+						</div>
+						<div class="description">
+							<h4 class="info-title">Beautiful Design</h4>
+							<p>Our designs are the best!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="projects-2 section section-dark reveal">
+		<div class="container">
+			<div class="row">
+				<div class="ml-auto mr-auto">
+					<h2 class="title text-center">Epimoni Swimwear Collection</h2>
+				</div>
+			</div>
+			<div class="row mx-1">
+				{% for product in products %}
+				<div class="col-lg-3 col-md-4">
+					<div class="card card-blog">
+						<div class="card-image">
+							{% if product.image %}
+							<a href="{% url 'product_detail' product.id %}">
+								<img
+									class="img-responsive img-fluid"
+									style="width: 100%; height: 400px; object-fit: cover"
+									src="{{ product.image.url }}"
+									alt="{{ product.name }}"
+								/>
+							</a>
+							{% else %}
+							<a href="{% url 'product_detail' product.id %}">
+								<img
+									class="img-responsive img-fluid"
+									style="width: 100%; height: 400px; object-fit: cover"
+									src="{{ MEDIA_URL }}no-image-icon-23499.png"
+									alt="{{ product.name }}"
+								/>
+							</a>
+							{% endif %}
+						</div>
+						<div class="card-body">
+							<div class="card-description">
+								<h5 class="card-title">{{ product.name }}</h5>
+								<p class="card-description">
+									{{ product.description|truncatechars:60 }}
+								</p>
+							</div>
+							<div class="card-footer text-center">
+								<a
+									href="{% url 'product_detail' product.id %}"
+									class="btn btn-primary"
+									>View Product</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="section landing-section reveal">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 ml-auto mr-auto">
+					<h2 class="text-center">Contact Me!</h2>
+					<form
+						action="{% url 'contactForm_submit' %}"
+						method="POST"
+						role="form"
+						class="contact-form"
+					>
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-md-6">
+								<label>Name:</label>
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Your Name"
+									name="name"
+									required
+								/>
+							</div>
+							<div class="col-md-6">
+								<label>Email:</label>
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Email"
+									name="email"
+									required
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label>Subject:</label>
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Subject"
+									name="subject"
+									required
+								/>
+							</div>
+						</div>
+						<label>Message:</label>
+						<textarea
+							class="form-control"
+							placeholder="Message"
+							rows="7"
+							name="message"
+							required
+						></textarea>
+						<div class="row">
+							<div class="col-md-4 offset-md-4">
+								<button class="btn btn-danger btn-lg btn-fill">
+									Send Message!
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="subscribe-line subscribe-line-black">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form action="{% url 'new_subscriber' %}" method="POST" novalidate>
-          {% csrf_token %}
-          <div class="row">
-            <div class="col-lg-9 col-md-8 col-sm-6 form-group">
-              <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email...">
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 form-group">
-              <button type="submit" class="btn btn-neutral btn-lg">Join Newsletter</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<form
+					enctype="multipart/form-data"
+					action="{% url 'new_subscriber' %}"
+					method="POST"
+					novalidate
+				>
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-lg-9 col-md-8 col-sm-6 form-group">
+							<input
+								type="email"
+								name="email"
+								id="email"
+								class="form-control"
+								placeholder="Enter your email..."
+							/>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 form-group">
+							<button type="submit" class="btn btn-neutral btn-lg">
+								Join Newsletter
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script type="text/javascript">
-  $('.btt-link').click(function (e) {
-    window.scrollTo(0, 0)
-  })
+	$(".btt-link").click(function (e) {
+		window.scrollTo(0, 0);
+	});
 </script>
 {% endblock %}
